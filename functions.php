@@ -157,15 +157,7 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-
-function meks_which_template_is_loaded() {
-	if ( is_super_admin() ) {
-		global $template;
-		print_r( $template );
-	}
-}
  
-add_action( 'wp_footer', 'meks_which_template_is_loaded' );
 class Sravni_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 	function start_lvl(&$output, $depth = 0, $args = null) {
