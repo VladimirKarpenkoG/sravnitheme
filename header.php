@@ -104,4 +104,5 @@
           </div>
         </div>
       </div>
-	<div class="container">
+      <div class="all-wrapper">
+        <div class="container">

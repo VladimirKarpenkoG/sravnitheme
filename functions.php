@@ -208,7 +208,7 @@ class Sravni_Walker_Nav_Menu extends Walker_Nav_Menu {
 		 * post_title - заголовок, который был у поста, когда он был добавлен в меню
 		 * post_name - ярлык, который был у поста при его добавлении в меню
 		 */
-		$indent = ( $depth ) ? str_repeat( "\t wqewqe", $depth ) : '';
+		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
  
 		/*
 		 * Генерируем строку с CSS-классами элемента меню
@@ -232,9 +232,6 @@ class Sravni_Walker_Nav_Menu extends Walker_Nav_Menu {
 		 */
 		$output .= $indent . '<li' . $id . $value . $class_names .'>';
 
-		if(true || $args->has_children) {
-			$item->url = $args->has_children;
-		}
  
 		// атрибуты элемента, title="", rel="", target="" и href=""
 		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';

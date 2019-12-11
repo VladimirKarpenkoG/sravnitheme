@@ -1,4 +1,5 @@
 </div>
+</div>
 <footer class="footer">
         <div class="container">
           <nav class="footer-nav menu-main" aria-label="Подвал">
