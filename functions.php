@@ -151,12 +151,42 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
+add_action( 'wp_ajax_misha', 'test_function' ); // wp_ajax_{ЗНАЧЕНИЕ ПАРАМЕТРА ACTION!!}
+add_action( 'wp_ajax_nopriv_misha', 'test_function' );  // wp_ajax_nopriv_{ЗНАЧЕНИЕ ACTION!!}
+// первый хук для авторизованных, второй для не авторизованных пользователей
+ 
+function test_function(){
+ 
+	$summa = $_POST['param1'] + $_POST['param2'];
+	echo $summa;
+ 
+	die; // даём понять, что обработчик закончил выполнение
+}
+
 /**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+add_action( 'wp_ajax_main_filter', 'main_filter' ); // wp_ajax_{ЗНАЧЕНИЕ ПАРАМЕТРА ACTION!!}
+add_action( 'wp_ajax_nopriv_main_filter', 'main_filter' );  // wp_ajax_nopriv_{ЗНАЧЕНИЕ ACTION!!}
+// первый хук для авторизованных, второй для не авторизованных пользователей
+ 
+function main_filter(){
+	$args = array();
+	$step = $_POST['step'] ?? 0;
+	$taxonomy = $_POST['taxonomy']?? 0;
+	if($step == 0) {
+		$terms = get_terms(['taxonomy'=>'k8tax_group', 'fields' => 'id=>name']);
+		var_dump($terms);
+	}
+	
+ 
+	die; // даём понять, что обработчик закончил выполнение
+}
+
  
 class Sravni_Walker_Nav_Menu extends Walker_Nav_Menu {
 
@@ -175,31 +205,7 @@ class Sravni_Walker_Nav_Menu extends Walker_Nav_Menu {
 	 */
 	function start_el(&$output, $item, $depth = 0, $args = NULL, $id = 0) {
 		global $wp_query;           
-		/*
-		 * Некоторые из параметров объекта $item
-		 * ID - ID самого элемента меню, а не объекта на который он ссылается
-		 * menu_item_parent - ID родительского элемента меню
-		 * classes - массив классов элемента меню
-		 * post_date - дата добавления
-		 * post_modified - дата последнего изменения
-		 * post_author - ID пользователя, добавившего этот элемент меню
-		 * title - заголовок элемента меню
-		 * url - ссылка
-		 * attr_title - HTML-атрибут title ссылки
-		 * xfn - атрибут rel
-		 * target - атрибут target
-		 * current - равен 1, если является текущим элементом
-		 * current_item_ancestor - равен 1, если текущим (открытым на сайте) является вложенный элемент данного
-		 * current_item_parent - равен 1, если текущим (открытым на сайте) является родительский элемент данного
-		 * menu_order - порядок в меню
-		 * object_id - ID объекта меню
-		 * type - тип объекта меню (таксономия, пост, произвольно)
-		 * object - какая это таксономия / какой тип поста (page /category / post_tag и т д)
-		 * type_label - название данного типа с локализацией (Рубрика, Страница)
-		 * post_parent - ID родительского поста / категории
-		 * post_title - заголовок, который был у поста, когда он был добавлен в меню
-		 * post_name - ярлык, который был у поста при его добавлении в меню
-		 */
+	
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
  
 		/*
