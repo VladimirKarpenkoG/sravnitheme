@@ -31,8 +31,8 @@
         </div>
       </footer>
     </div>
-  <script type="text/javascript" src="/wp-content/themes/sravnitheme/lib/chunk-vendor.5ba063e5ddd0cc28c754.js"></script>
-  <script type="text/javascript" src="/wp-content/themes/sravnitheme/app.24afce2f4383912a26ea.js"></script>
+  <script type="text/javascript" src="/wp-content/themes/sravnitheme/lib/chunk-vendor.js"></script>
+  <script type="text/javascript" src="/wp-content/themes/sravnitheme/js/app.js"></script>
   <?php wp_footer(); ?>
   </body>
 </html>
