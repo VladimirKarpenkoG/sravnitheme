@@ -14,9 +14,9 @@
 		  $text['page'] = 'Страница %s'; // текст 'Страница N'
 		  $text['cpage'] = 'Страница комментариев %s'; // текст 'Страница комментариев N'
 
-		  $wrap_before = '<div class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">'; // открывающий тег обертки
-		  $wrap_after = '</div><!-- .breadcrumbs -->'; // закрывающий тег обертки
-		  $sep = '›'; // разделитель между "крошками"
+		  $wrap_before = '<nav class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">'; // открывающий тег обертки
+		  $wrap_after = '</nav><!-- .breadcrumbs -->'; // закрывающий тег обертки
+		  $sep = '→'; // разделитель между "крошками"
 		  $sep_before = '<span class="sep">'; // тег перед разделителем
 		  $sep_after = '</span>'; // тег после разделителя
 		  $show_home_link = 1; // 1 - показывать ссылку "Главная", 0 - не показывать
@@ -33,7 +33,7 @@
 		  $link_attr = ' itemprop="item"';
 		  $link_in_before = '<span itemprop="name">';
 		  $link_in_after = '</span>';
-		  $link = $link_before . '<a href="%1$s"' . $link_attr . '>' . $link_in_before . '%2$s' . $link_in_after . '</a>' . $link_after;
+		  $link = $link_before . '<a href="%1$s"' . $link_attr . '> class="breadcrumbs__link"' . $link_in_before . '%2$s' . $link_in_after . '</a>' . $link_after;
 		  $frontpage_id = get_option('page_on_front');
 		  $parent_id = ($post) ? $post->post_parent : '';
 		  $sep = ' ' . $sep_before . $sep . $sep_after . ' ';

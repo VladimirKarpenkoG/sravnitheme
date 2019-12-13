@@ -34,7 +34,6 @@
       }());
       
     </script>
-  <link href="/wp-content/themes/sravnitheme/css/vendor.css" rel="stylesheet"><link href="/wp-content/themes/sravnitheme/css/app.css" rel="stylesheet"></head>
 
 	<?php wp_head(); ?>
 </head>
@@ -90,7 +89,9 @@
         </div>
         <div class="container">
           <nav class="header-nav menu-main" aria-label="Главная">
-            <?php wp_nav_menu(['walker'=> new Sravni_Walker_Nav_Menu()])?>
+            <?php wp_nav_menu([
+              'theme-location' => 'primary',
+              'walker'=> new Sravni_Walker_Nav_Menu()])?>
           </nav>
           <div class="search">
 	  			<?php get_search_form(); ?>
