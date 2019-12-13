@@ -207,13 +207,20 @@ class Sravni_Walker_Nav_Menu extends Walker_Nav_Menu {
 		global $wp_query;           
 	
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
- 
+		
+
 		/*
 		 * Генерируем строку с CSS-классами элемента меню
 		 */
 		$class_names = $value = '';
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 		$classes[] = 'menu-item-' . $item->ID;
+
+		if($args->walker->has_children)
+        {
+			$classes[] = "dropdown";
+			$classes[] = "dropdown--inline";
+		}   
  
 		// функция join превращает массив в строку
 		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
@@ -236,6 +243,11 @@ class Sravni_Walker_Nav_Menu extends Walker_Nav_Menu {
 		$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
 		$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
 		$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+		
+		if($depth == 1) {
+			$args->link_before = '<span>';
+			$args->link_after = '</span>';
+		}
 
 		// ссылка и околоссылочный текст
 		$item_output = $args->before;
