@@ -91,7 +91,7 @@
           <nav class="header-nav menu-main" aria-label="Главная">
             <?php wp_nav_menu([
               'theme-location' => 'primary',
-              'walker'=> new Sravni_Walker_Nav_Menu()])?>
+              'walker'=> new SravniWalker()])?>
           </nav>
           <div class="search">
 	  			<?php get_search_form(); ?>
