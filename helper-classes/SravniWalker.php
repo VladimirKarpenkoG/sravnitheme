@@ -31,6 +31,7 @@ function start_el(&$output, $item, $depth = 0, $args = NULL, $id = 0) {
     {
         $classes[] = "dropdown";
         $classes[] = "dropdown--inline";
+        $item->url = '#!';
     }   
 
     // функция join превращает массив в строку
@@ -54,7 +55,7 @@ function start_el(&$output, $item, $depth = 0, $args = NULL, $id = 0) {
     $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
     $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
     $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
-    
+
     if($depth == 1) {
         $args->link_before = '<span>';
         $args->link_after = '</span>';

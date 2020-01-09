@@ -45,7 +45,7 @@ get_header();
                     <author class="article__card-author"><a href="#!">Автор: <?= the_author('',false )?></a></author>
                     </div>
                     <p class="article__card-text need-truncate" data-max-lines="6">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis facilis aspernatur quidem quas pariatur, aliquam molestias dolorem necessitatibus, modi dignissimos ullam. Quibusdam, amet ab? Voluptatum rerum ea temporibus similique minus.
+                    Lorem ipsum dolor sit amet consectetur adipisicing уelit. Officiis facilis aspernatur quidem quas pariatur, aliquam molestias dolorem necessitatibus, modi dignissimos ullam. Quibusdam, amet ab? Voluptatum rerum ea temporibus similique minus.
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi molestiae numquam perspiciatis dolor fuga! Fugiat impedit est sapiente obcaecati nobis soluta ipsam, cupiditate voluptatem blanditiis adipisci facilis laborum quam deleniti.
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem molestiae cumque nihil, voluptatem aliquid temporibus sequi suscipit maiores iste, cum excepturi sed fuga? Ad quas eos reprehenderit totam similique harum.
                     </p>
