@@ -74,6 +74,7 @@
         <div class="header-main">
           <div class="container">
             <div class="header-inner"><a class="header__home-link" href="#" aria-label="Main page"><img class="header__logo" src="/wp-content/themes/sravnitheme/img/logo_small.svg"></a>
+              <?php /*
               <div class="header__buttons">
                 <div class="dropdown dropdown--theme_btn">
                   <button class="btn dropdown__btn btn--sm" id="lang-btn" aria-label="choose your language" aria-actions="lang-list"> <span>RUS</span><i class="btn__ico fas fa-angle-down"></i></button>
@@ -82,8 +83,9 @@
                     <li class="dropdown__item"><a class="dropdown__link">GER</a></li>
                     <li class="dropdown__item"><a class="dropdown__link">RUS</a></li>
                   </ul>
-                </div><a class="btn btn--sm" href="#!">Вход</a>
-              </div>
+                </div>
+                <a class="btn btn--sm" href="#!">Вход</a>
+              </div>*/ ?>
             </div>
           </div>
         </div>
