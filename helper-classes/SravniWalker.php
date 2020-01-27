@@ -31,7 +31,7 @@ function start_el(&$output, $item, $depth = 0, $args = NULL, $id = 0) {
     {
         $classes[] = "dropdown";
         $classes[] = "dropdown--inline";
-        $item->url = '#!';
+        $item->url = 'javascript:void(0)';
     }   
 
     // функция join превращает массив в строку
