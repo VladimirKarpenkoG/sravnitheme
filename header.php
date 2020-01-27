@@ -84,7 +84,7 @@
                     <li class="dropdown__item"><a class="dropdown__link">RUS</a></li>
                   </ul>
                 </div>
-                <a class="btn btn--sm" href="#!">Вход</a>
+                <a class="btn btn--sm" href="javascript:void(0);">Вход</a>
               </div>*/ ?>
             </div>
           </div>

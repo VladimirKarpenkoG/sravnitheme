@@ -17,9 +17,9 @@ get_header();
  <main>
     <div class="tab">
       <ul class="tab__list" role="tabblist">
-        <li class="tab__item"><a class="btn btn--tab" href="#!" role="tab" id="popular-tab" aria-controls="popular-panel" aria-selected="true">Популярные</a></li>
-        <li class="tab__item"><a class="btn btn--tab" href="#!" role="tab" id="new-tab" aria-controls="new-panel" aria-selected="false">Новые</a></li>
-        <li class="tab__item"><a class="btn btn--tab" href="#!" role="tab" id="old-tab" aria-controls="old-panel" aria-selected="false">Старые</a></li>
+        <li class="tab__item"><a class="btn btn--tab" href="javascript:void(0);" role="tab" id="popular-tab" aria-controls="popular-panel" aria-selected="true">Популярные</a></li>
+        <li class="tab__item"><a class="btn btn--tab" href="javascript:void(0);" role="tab" id="new-tab" aria-controls="new-panel" aria-selected="false">Новые</a></li>
+        <li class="tab__item"><a class="btn btn--tab" href="javascript:void(0);" role="tab" id="old-tab" aria-controls="old-panel" aria-selected="false">Старые</a></li>
       </ul>
       <section class="tab__panel" role="tabpanel" id="popular-panel" aria-labelledby="popular-tab">
         <div class="article-list">
@@ -42,12 +42,10 @@ get_header();
                     <?= get_the_post_thumbnail( $id, 'thumbnail', array('class' => 'article__card-img') ); ?>
                     <div class="article__card-header">
                     <h2 class="article__card-title"><a href="<?=get_permalink()?>"><?= the_title()?></a></h2>
-                    <author class="article__card-author"><a href="#!">Автор: <?= the_author('',false )?></a></author>
+                    <author class="article__card-author"><a href="<?= esc_url(get_author_posts_url(get_the_author_meta('ID')))?>">Автор: <?= the_author('',false )?></a></author>
                     </div>
                     <p class="article__card-text need-truncate" data-max-lines="6">
-                    Lorem ipsum dolor sit amet consectetur adipisicing уelit. Officiis facilis aspernatur quidem quas pariatur, aliquam molestias dolorem necessitatibus, modi dignissimos ullam. Quibusdam, amet ab? Voluptatum rerum ea temporibus similique minus.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi molestiae numquam perspiciatis dolor fuga! Fugiat impedit est sapiente obcaecati nobis soluta ipsam, cupiditate voluptatem blanditiis adipisci facilis laborum quam deleniti.
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem molestiae cumque nihil, voluptatem aliquid temporibus sequi suscipit maiores iste, cum excepturi sed fuga? Ad quas eos reprehenderit totam similique harum.
+                    &nbsp;
                     </p>
                 </div>
                 <div class="article__card-controls">
@@ -69,9 +67,9 @@ get_header();
             ) );  ?>
         <nav class="pagination" role="navigation" aria-label="Pagination">
           <ul class="pagination__list">
-            <li class="pagination__item pagination__item--active"><a class="pagination__link" href="#!" aria-current="true" diasbled>1</a></li>
-            <li class="pagination__item"><a class="pagination__link" href="#!">2</a></li>
-            <li class="pagination__item"><a class="pagination__link" href="#!">3</a></li>
+            <li class="pagination__item pagination__item--active"><a class="pagination__link" href="javascript:void(0);" aria-current="true" diasbled>1</a></li>
+            <li class="pagination__item"><a class="pagination__link" href="javascript:void(0);">2</a></li>
+            <li class="pagination__item"><a class="pagination__link" href="javascript:void(0);">3</a></li>
           </ul>
         </nav>
       </section>
@@ -82,14 +80,16 @@ get_header();
         работу и пишем для вас обзоры. Вы можете следить за нашими
         новостями в соцсетях.
       </blockquote>
+      <?php if(false):?>
       <div class="social__block">
         <ul class="social__list">
-          <li class="social__item"><a class="social__link" href="#!"><i class="fab fa-facebook-f"></i></a></li>
-          <li class="social__item"><a class="social__link" href="#!"><i class="fab fa-youtube"></i></a></li>
-          <li class="social__item"><a class="social__link" href="#!"><i class="fab fa-instagram"></i></a></li>
-          <li class="social__item"><a class="social__link" href="#!"><i class="fab fa-twitter"></i></a></li>
+          <li class="social__item"><a class="social__link" href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
+          <li class="social__item"><a class="social__link" href="javascript:void(0);"><i class="fab fa-youtube"></i></a></li>
+          <li class="social__item"><a class="social__link" href="javascript:void(0);"><i class="fab fa-instagram"></i></a></li>
+          <li class="social__item"><a class="social__link" href="javascript:void(0);"><i class="fab fa-twitter"></i></a></li>
         </ul>
       </div>
+      <?php endif; ?>
     </section>
   </main>   
 			
