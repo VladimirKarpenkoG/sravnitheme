@@ -4,7 +4,6 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta id="viewport" name="viewport" content="width=414, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title><?php wp_title();?></title>
     <script>
       //mobile viewport hack
       (function(){
