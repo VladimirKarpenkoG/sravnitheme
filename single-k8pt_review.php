@@ -23,7 +23,11 @@ get_header();
             <div class="article__buttons"><a class="btn btn--review" href="javascript:void(0);">К сравнению!</a><a class="btn btn--green btn--download" href="javascript:void(0);"><span class="btn__text">Скачать</span><i class="btn__ico fas fa-arrow-alt-circle-down"></i></a></div>
           <?php endif;?>
         </div>
-        <div class="article__header-img"><img src="<?= the_post_thumbnail_url('medium');?>"></div>
+
+        <div class="article__header-img">
+        <img src="<?= get_field('k8_cmn_illustration') ? wp_get_attachment_image_url( get_field('k8_cmn_illustration'), 'large' ): the_post_thumbnail_url('large') ?>">
+        </div>
+
       </header>
       <div class="article__author"><img class="article__author-image" src="<?= get_avatar_url($post->post_author)?>">
         <div class="article__author-info">
