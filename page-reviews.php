@@ -28,7 +28,7 @@ get_header();
             $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
             $loop = new WP_Query( array(
                 'post_type' => 'k8pt_review',
-                'posts_per_page'=> 5,
+                //'posts_per_page'=> 5,
                 'paged' => $paged
                 )
             ); ?>
@@ -45,7 +45,7 @@ get_header();
                     <author class="article__card-author"><a href="<?= esc_url(get_author_posts_url(get_the_author_meta('ID')))?>">Автор: <?= the_author('',false )?></a></author>
                     </div>
                     <p class="article__card-text need-truncate" data-max-lines="6">
-                    &nbsp;
+                    <?= strip_tags(get_the_content(),'<a>');?>
                     </p>
                 </div>
                 <div class="article__card-controls">
@@ -59,6 +59,9 @@ get_header();
             </div>
         <?php endwhile; wp_reset_query(); ?>  
         </div>
+        
+        <?php if(false):?>
+        <!-- PAGINATION-->
         <?php the_posts_pagination( array(
                 'mid_size'  => 4,
                 'end_size' => 1,
@@ -72,13 +75,12 @@ get_header();
             <li class="pagination__item"><a class="pagination__link" href="javascript:void(0);">3</a></li>
           </ul>
         </nav>
+        <?php endif;?>
       </section>
     </div>
     <section class="page__additional">                       
       <blockquote class="message message--quote">
-        Этот раздел пополняется! Мы постоянно проводим аналитическую
-        работу и пишем для вас обзоры. Вы можете следить за нашими
-        новостями в соцсетях.
+        <?= the_content();?>
       </blockquote>
       <?php if(false):?>
       <div class="social__block">

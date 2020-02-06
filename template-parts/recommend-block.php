@@ -6,7 +6,7 @@
     'post_type' => $post->post_type,
     'post__not_in' => array($post->ID),
     'showposts'=>3,
-    'orderby'=>rand,
+    'orderby'=> 'rand',
     'caller_get_posts'=>1,
     'tax_query' => array(
       array(
