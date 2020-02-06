@@ -11,7 +11,6 @@ Template Name: Review page layout
 Template Post Type: review
 */
 $accordions = get_field('k8_cmn_accordions');
-$tarrifs = get_field('k8_cmn_prc');
 get_header();
 ?>
 	<main class="article-page">
@@ -44,74 +43,23 @@ get_header();
       </div>
       <section class="article__content">
         <?= the_content(); ?>
-        <?php if(false):?>
         <div class="article__info">
           <div class="row gutter-lg">
             <div class="col-12 col-lg-8">
-              <div class="info info__table info__table--theme-main">
-                <div class="info__row">
-                  <div class="info__key">Бесплатная версия</div>
-                  <div class="info__value">Есть</div>
-                </div>
-                <div class="info__row">
-                  <div class="info__key">Поддерживаемые языки</div>
-                  <div class="info__value">Русский, английский и ещё 70</div>
-                </div>
-                <div class="info__row">
-                  <div class="info__key">Собственное доменное имя</div>
-                  <div class="info__value">Платная функция</div>
-                </div>
-                <div class="info__row">
-                  <div class="info__key">Объём почтового ящика для бесплатной версии</div>
-                  <div class="info__value">15 Гб</div>
-                </div>
-                <div class="info__row">
-                  <div class="info__key">Максимальный объём прикрепляемых файлов</div>
-                  <div class="info__value">25 Мб</div>
-                </div>
-                <div class="info__row">
-                  <div class="info__key">Время до блокировки аккаунта при длительном бездействии</div>
-                  <div class="info__value">9 месяцев</div>
-                </div>
-                <div class="info__row">
-                  <div class="info__key">Приложения для операционных систем</div>
-                  <div class="info__value">Android, iOS</div>
-                </div>
-                <div class="info__row">
-                  <div class="info__key">Меры защиты</div>
-                  <div class="info__value">S/MIME, PFS, RSA-2048, HTTPS</div>
-                </div>
-              </div>
+              <?= K8Tables::printTextTable();?>
             </div>
             <div class="col-12 col-lg-4">
               <div class="row gutter-lg">
-                <?php if($tarrifs):?>
-                <div class="col-12 col-sm-6 col-lg-12">
-                  <div class="info info__list">
-                    <div class="info__title">Тарифы</div>
-					          <?php foreach($tarrifs as $tariff):?>
-                    	<div class="info__value"><?php echo $tariff['tarif_name'] . ' - ' . $tariff["curr"]["label"] . $tariff['amount_money']. '/месяц'?></div>
-                    <?php endforeach; ?>
-                  </div>
-                </div>
-                <?php endif;?>
+                  <?= K8Tables::printTariffTable();?>
                 <!-- Mail block -->
                 <div class="col-12 col-sm-6 col-lg-12">
-                  <div class="info info__table info__table--theme-check">
-                   
-                    <div class="info__row">
-                      <div class="info__key">Outlook</div>
-                      <div class="info__value"><i class="fas fa-check"></i></div>
-                    </div>
-                  
-                  </div>
+                  <?= K8Tables::printBooleanTable(get_the_ID());?>
                 </div>
                 <!-- END MAIL BLOCK -->
               </div>
             </div>
           </div>
         </div>
-        <?php endif;?>
 	
 		<?php
 			if($accordions):

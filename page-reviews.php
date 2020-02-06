@@ -25,11 +25,11 @@ get_header();
         <div class="article-list">
 
         <?php
-            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+            //$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
             $loop = new WP_Query( array(
                 'post_type' => 'k8pt_review',
-                //'posts_per_page'=> 5,
-                'paged' => $paged
+                'posts_per_page'=> -1,
+                //'paged' => $paged
                 )
             ); ?>
 
