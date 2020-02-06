@@ -145,6 +145,7 @@ get_header();
         <div class="download"><a class="btn btn--green btn--download" href="javascript:void(0);"><span class="btn__text">Скачать</span><i class="btn__ico fas fa-arrow-alt-circle-down"></i></a><span class="download__size">Объем файла: 45мб</span></div>
       <?php endif;?>
     </article>
+    <?php get_template_part( 'template-parts/recommend-block', 'recommend' );?>
   </main>
 <?php
 get_footer();
