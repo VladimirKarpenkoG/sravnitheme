@@ -43,6 +43,7 @@ get_header();
       </div>
       <section class="article__content">
         <?= the_content(); ?>
+        <?php if(get_field('k8_cmn_display_fields')):?>
         <div class="article__info">
           <div class="row gutter-lg">
             <div class="col-12 col-lg-8">
@@ -60,7 +61,7 @@ get_header();
             </div>
           </div>
         </div>
-	
+        <?php endif; ?>
 		<?php
 			if($accordions):
         foreach($accordions as $accordion): 
