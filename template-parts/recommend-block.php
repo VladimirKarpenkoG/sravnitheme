@@ -18,7 +18,7 @@
     $recommend = new wp_query($args);
     if($recommend->have_posts()): ?>
  <section class="article__recommend">
-      <h3 class="article__recommend-title">Вам так же могут быть интересны эти статьи:</h3>
+      <h3 class="article__recommend-title">Вам также могут быть интересны эти статьи:</h3>
       <div class="article-list">
         <?php while($recommend->have_posts()): $recommend->the_post();?>
         <div class="article__card-wrapper">
