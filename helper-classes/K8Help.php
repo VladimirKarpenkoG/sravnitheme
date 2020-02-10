@@ -82,9 +82,11 @@
 
 			}   
 
-			if(1 != $pages){
+			if(1 != $pages){?>
+				<nav class="pagination" role="navigation" aria-label="Pagination">
+          			<ul class="pagination__list">
 
-				echo "<div class='pagination'>";
+				<?php 
 				if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<a href='".get_pagenum_link(1)."'>&laquo;</a>";
 				if($paged > 1 && $showitems < $pages) echo "<a href='".get_pagenum_link($paged - 1)."'>&lsaquo;</a>";
 
@@ -92,17 +94,18 @@
 				{
 				   if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems ))
 				   {
-				       echo ($paged == $i)? "<span class='current'>".$i."</span>":"<a href='".get_pagenum_link($i)."' class='inactive' >".$i."</a>";
+					   echo '<li class="pagination__item '. ($paged == $i ? 'pagination__item--active':'').'"><a class="pagination__link" href="'.get_pagenum_link($i).'">'.$i.'</a></li>';
 				   }
 				}
 
 				if ($paged < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($paged + 1)."'>&rsaquo;</a>";  
-				if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."'>&raquo;</a>";
-				echo "</div>\n";
+				if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."'>&raquo;</a>";?>
+					</ul>
+				</nav><?php
 			}
 		}
 
 
 
 
-	}?>
+	}
