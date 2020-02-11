@@ -17,11 +17,10 @@ get_header();?>
       </ul>
       <section class="tab__panel" role="tabpanel" id="popular-panel" aria-labelledby="popular-tab">
         <div class="article-list">
-<?php $need_big = true;
-while (have_posts() ) :the_post(); ?>
+<?php while (have_posts() ) :the_post(); ?>
 
 <!--div class="article__card-wrapper article__card-wrapper--lg"-->
-<div class="article__card-wrapper <?php if($need_big){$need_big = false; echo 'article__card-wrapper--lg';}?>">
+<div class="article__card-wrapper">
 	<article class="article__card">
 	<div class="article__card-content">
 		<?= get_the_post_thumbnail( $id, 'thumbnail', array('class' => 'article__card-img') ); ?>
