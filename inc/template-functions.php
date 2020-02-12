@@ -37,23 +37,6 @@ function reacher89_pingback_header() {
 add_action( 'wp_head', 'reacher89_pingback_header' );
 
 
-function remove_acf_menu(){
-  global $current_user;
-  if ($current_user->user_login!='superadmin'){
-    remove_menu_page( 'edit.php?post_type=acf-field-group' );
-  }
-}
-add_action( 'admin_menu', 'remove_acf_menu', 100 );
-
-
-
-
-
-
-
-
-
-
 
 // REMOVE EMBED
 function my_deregister_scripts(){
