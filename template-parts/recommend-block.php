@@ -1,20 +1,32 @@
  <!-- recommend block -->
 <?php
-    	
-    $postterms = get_the_terms( get_the_ID(),'k8tax_group');
-    $args=array(
-    'post_type' => $post->post_type,
-    'post__not_in' => array($post->ID),
-    'showposts'=>3,
-    'orderby'=> 'rand',
-    'caller_get_posts'=>1,
-    'tax_query' => array(
-      array(
+    
+    //Sort post in categories by default
+    $categories = get_the_category($post->ID);
+    $category_ids = array();
+    foreach($categories as $individual_category) $category_ids[] = $individual_category->term_id;
+    
+    //But if this is review, then sort by taxonomy
+    $tax_query = null;
+    if($post->post_type == 'k8pt_review') {
+      echo "<h1>ХОБА</h1>";
+      $postterms = get_the_terms($post->ID,'k8tax_group');
+      $tax_query =[[
           'taxonomy' => 'k8tax_group',
           'field'    => 'term_id',
           'terms'    => $postterms[0]->term_id,
-      ),
-  ),);
+        ]];
+    }
+
+    $args=array(
+    'post_type' => $post->post_type,
+    'post__not_in' => array($post->ID),
+    'category__in' => $category_ids,
+    'showposts'=>3,
+    'orderby'=> 'rand',
+    'caller_get_posts'=>1,
+    'tax_query' => $tax_query
+);
     $recommend = new wp_query($args);
     if($recommend->have_posts()): ?>
  <section class="article__recommend">
