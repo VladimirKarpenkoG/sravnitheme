@@ -49,14 +49,8 @@ get_header();?>
     </div>
     <section class="page__additional">
 		
-		<?php 
-		$description = get_post_type_object( 'k8pt_review' )->description;
-		if(term_description() || $description):?>     
-			<blockquote class="message message--quote">
-				<?=term_description() ? term_description() : $description?>
-      		</blockquote>
-		<?php endif;?>	  
-      <?php if(false):?>
+		<?php get_template_part( 'template-parts/tax_description-block', 'tax_description' );?>		
+    	<?php if(false):?>
       <div class="social__block">
         <ul class="social__list">
           <li class="social__item"><a class="social__link" href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
