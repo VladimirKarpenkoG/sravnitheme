@@ -50,7 +50,6 @@ get_header();?>
     <section class="page__additional">
 		
 		<?php 
-		echo term_description();
 		$description = get_post_type_object( 'k8pt_review' )->description;
 		if(term_description() || $description):?>     
 			<blockquote class="message message--quote">
