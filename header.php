@@ -108,4 +108,6 @@
       </div>
       <div class="all-wrapper">
         <div class="container">
-        <?php new Kd89Bread;?>
+        <?php if (function_exists('rank_math_the_breadcrumbs') && !is_front_page()) rank_math_the_breadcrumbs(); ?>
+
+        
