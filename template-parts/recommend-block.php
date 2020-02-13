@@ -5,11 +5,10 @@
     $categories = get_the_category($post->ID);
     $category_ids = array();
     foreach($categories as $individual_category) $category_ids[] = $individual_category->term_id;
-    
+
     //But if this is review, then sort by taxonomy
     $tax_query = null;
     if($post->post_type == 'k8pt_review') {
-      echo "<h1>ХОБА</h1>";
       $postterms = get_the_terms($post->ID,'k8tax_group');
       $tax_query =[[
           'taxonomy' => 'k8tax_group',
