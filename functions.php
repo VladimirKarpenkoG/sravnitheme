@@ -190,3 +190,36 @@ function wpa_cpt_tags( $query ) {
 }
 add_action( 'pre_get_posts', 'wpa_cpt_tags' );
 
+if ( ! function_exists( 'sravni_query_vars_filter' ) ) {
+	function sravni_query_vars_filter( $vars ) {
+	 $vars[] = 'sort';
+		 return $vars;
+	}
+	
+	add_filter( 'query_vars', 'sravni_query_vars_filter' );
+   }
+
+
+	if ( ! function_exists( 'sravni_sorting_query' ) ) {
+		function sravni_sorting_query( $query ) {
+			$order = 'DESC';
+			$order_by = 'date';
+			$sort = get_query_var('sort');
+			switch($sort) {
+				case 'new':
+					$order = 'DESC';
+				break;
+				case 'old':
+					$order = 'ASC';
+				break;
+				case 'popular':
+					$order_by = 'comment_count';
+				break;
+			}
+				$query->set( 'orderby', $order_by );
+				$query->set( 'order', $order);
+				
+		}
+	
+		add_action( 'pre_get_posts', 'sravni_sorting_query' );
+   }

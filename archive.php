@@ -11,11 +11,11 @@ get_header();?>
 <main>
     <div class="tab">
       <ul class="tab__list" role="tabblist">
-        <li class="tab__item"><a class="btn btn--tab" href="javascript:void(0);" role="tab" id="popular-tab" aria-controls="popular-panel" aria-selected="true">Популярные</a></li>
-        <li class="tab__item"><a class="btn btn--tab" href="javascript:void(0);" role="tab" id="new-tab" aria-controls="new-panel" aria-selected="false">Новые</a></li>
-        <li class="tab__item"><a class="btn btn--tab" href="javascript:void(0);" role="tab" id="old-tab" aria-controls="old-panel" aria-selected="false">Старые</a></li>
+        <li class="tab__item"><a class="btn btn--tab" href="?sort=popular">Популярные</a></li>
+        <li class="tab__item"><a class="btn btn--tab" href="?sort=new">Новые</a></li>
+        <li class="tab__item"><a class="btn btn--tab" href="?sort=old">Старые</a></li>
       </ul>
-      <section class="tab__panel" role="tabpanel" id="popular-panel" aria-labelledby="popular-tab">
+      <section class="tab__panel">
         <div class="article-list">
 <?php while (have_posts() ) :the_post(); ?>
 
