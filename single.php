@@ -82,6 +82,7 @@ get_header();
       <?php endif;?>
     </article>
     <?php get_template_part( 'template-parts/recommend-block', 'recommend' );?>
+    <?php get_template_part( 'template-parts/tags', 'tags' );?>
   </main>
 <?php
 get_footer();

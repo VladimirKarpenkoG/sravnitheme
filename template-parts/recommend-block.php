@@ -55,6 +55,7 @@
           </article>
         </div>
         <?endwhile;?>
+        <? wp_reset_query();?>
       </div>
     </section>
 <?php endif;?>

@@ -46,6 +46,7 @@ if ( ! function_exists( 'reacher89_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'primary' => esc_html__( 'Primary', 'sravnitheme' ),
+			'mobile' => esc_html__( 'Mobile', 'sravnitheme' ),
 			'footer' => esc_html__( 'Footer', 'sravnitheme' ),
 		) );
 
@@ -181,4 +182,11 @@ function main_filter(){
  
 	die; // даём понять, что обработчик закончил выполнение
 }
+
+function wpa_cpt_tags( $query ) {
+    if ( $query->is_tag() && $query->is_main_query() ) {
+        $query->set( 'post_type', array( 'post', 'k8pt_review' ) );
+    }
+}
+add_action( 'pre_get_posts', 'wpa_cpt_tags' );
 
