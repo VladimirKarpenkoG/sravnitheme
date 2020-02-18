@@ -27,9 +27,9 @@
 
 		elseif ( is_search() ) :?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'reacher89' ); ?></p>
+			<p class="display-4"><?php esc_html_e( 'Мы не нашли ничего по этому запросу. Попробуйте найти что-то другое.', 'reacher89' ); ?></p>
 			<?php else :?>
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'reacher89' ); ?></p>
+			<p class="display-4"><?php esc_html_e( 'Мы не нашли ничего по этому запросу. Попробуйте найти что-то другое.', 'reacher89' ); ?></p>
 			<?php
 			get_search_form();
 
