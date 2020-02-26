@@ -33,7 +33,7 @@ get_header();
             <time datetime="<?= get_the_date() ?>"><?= get_the_date() ?></time>
           </div>
           <hr class="article__author-hr">
-          <div class="article__author-name">Автор: <?= the_author('',false )?></div>
+          <div class="article__author-name">Автор: <?= get_the_author('',false )?></div>
         </div>
       </div>
       <div class="dropdown dropdown--theme_contents article__contents">

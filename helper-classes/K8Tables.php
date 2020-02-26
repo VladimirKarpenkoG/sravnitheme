@@ -70,7 +70,7 @@
 
     
     static function printBooleanTable($post_id) {
-
+        global $post_id;
         $post_terms= get_the_terms($post_id,'k8tax_group');
         $tax_id = $post_terms[0]->term_id;
 
@@ -94,6 +94,7 @@
 
 
     static function printTextTable() {
+        global $post_id;
         $post_terms= get_the_terms($post_id,'k8tax_group');
         $tax_id = $post_terms[0]->term_id;
 
