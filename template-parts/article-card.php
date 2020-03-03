@@ -4,7 +4,6 @@
 		<?= get_the_post_thumbnail( $id, 'thumbnail', array('class' => 'article__card-img') ); ?>
 		<div class="article__card-header">
 		<h2 class="article__card-title"><a href="<?=get_permalink()?>"><?= the_title()?></a></h2>
-		<author class="article__card-author"><a href="<?= esc_url(get_author_posts_url(get_the_author_meta('ID')))?>">Автор: <?= get_the_author('',false )?></a></author>
 		</div>
 		<p class="article__card-text need-truncate" data-max-lines="6">
 		<?= strip_tags(get_the_content(),'<a>');?>

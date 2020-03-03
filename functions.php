@@ -147,18 +147,6 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
-add_action( 'wp_ajax_misha', 'test_function' ); // wp_ajax_{ЗНАЧЕНИЕ ПАРАМЕТРА ACTION!!}
-add_action( 'wp_ajax_nopriv_misha', 'test_function' );  // wp_ajax_nopriv_{ЗНАЧЕНИЕ ACTION!!}
-// первый хук для авторизованных, второй для не авторизованных пользователей
- 
-function test_function(){
- 
-	$summa = $_POST['param1'] + $_POST['param2'];
-	echo $summa;
- 
-	die; // даём понять, что обработчик закончил выполнение
-}
-
 /**
  * Load Jetpack compatibility file.
  */
@@ -166,22 +154,8 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-add_action( 'wp_ajax_main_filter', 'main_filter' ); // wp_ajax_{ЗНАЧЕНИЕ ПАРАМЕТРА ACTION!!}
-add_action( 'wp_ajax_nopriv_main_filter', 'main_filter' );  // wp_ajax_nopriv_{ЗНАЧЕНИЕ ACTION!!}
-// первый хук для авторизованных, второй для не авторизованных пользователей
- 
-function main_filter(){
-	$args = array();
-	$step = $_POST['step'] ?? 0;
-	$taxonomy = $_POST['taxonomy']?? 0;
-	if($step == 0) {
-		$terms = get_terms(['taxonomy'=>'k8tax_group', 'fields' => 'id=>name']);
-		var_dump($terms);
-	}
-	
- 
-	die; // даём понять, что обработчик закончил выполнение
-}
+add_action( 'wp_ajax_main_filter', ['K8AjaxHandler', 'mainFilter'] );
+add_action( 'wp_ajax_nopriv_main_filter', ['K8AjaxHandler', 'mainFilter'] );
 
 function wpa_cpt_tags( $query ) {
     if ( $query->is_tag() && $query->is_main_query() ) {
@@ -223,3 +197,38 @@ if ( ! function_exists( 'sravni_query_vars_filter' ) ) {
 	
 		add_action( 'pre_get_posts', 'sravni_sorting_query' );
    }
+
+   function new_subcategory_hierarchy() { 
+    $category = get_queried_object();
+
+    $parent_id = $category->category_parent;
+
+    $templates = array();
+
+    if ( $parent_id == 0 ) {
+        // Use default values from get_category_template()
+        $templates[] = "category-{$category->slug}.php";
+        $templates[] = "category-{$category->term_id}.php";
+        $templates[] = 'category.php';     
+    } else {
+        // Create replacement $templates array
+        $parent = get_category( $parent_id );
+
+        // Current first
+        $templates[] = "category-{$category->slug}.php";
+        $templates[] = "category-{$category->term_id}.php";
+
+        // Parent second
+        $templates[] = "category-{$parent->slug}.php";
+        $templates[] = "category-{$parent->term_id}.php";
+        $templates[] = 'category.php'; 
+    }
+    return locate_template( $templates );
+}
+
+add_filter( 'category_template', 'new_subcategory_hierarchy' );
+
+
+if(isset($_GET['update_filter_price'])) {
+	K8CronController::updateFilterPrices();
+}

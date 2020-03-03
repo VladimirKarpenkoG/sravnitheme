@@ -40,34 +40,8 @@
 <body <?php body_class(); ?>>
 <div id="page">
 <div class="header-mobile__menu" id="mobile-menu" style="display: none">
-  <ul id="main-menu">
-    <li><a href="#">Обзоры</a></li>
-    <li class="current-menu-item"><span>Сравнение</span>
-      <ul>
-        <li><a href="#">Скачать софт</a></li>
-        <li><a href="#">Инструкции</a></li>
-        <li><a href="#">Полезная информация</a></li>
-        <li><a href="#">Новости</a></li>
-        <li><a href="#">Помощь</a></li>
-      </ul>
-    </li>
-    <li><a href="#">Скачать софт</a></li>
-    <li><a href="#">Инструкции</a></li>
-    <li><a href="#">Полезная информация</a></li>
-    <li><a href="#">Новости</a></li>
-    <li><a href="#">Помощь</a></li>
-  </ul>
-  <ul class="header-mobile__lang" id="lang-menu">
-    <li><a href="http://">Russian</a></li>
-    <li><a href="http://">German</a></li>
-    <li><a href="http://">English</a></li>
-  </ul>
-  <ul class="icon-bottom">
-    <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-    <li><a href="#" target="_blank"><i class="fab fa-youtube"></i></a></li>
-    <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-    <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-  </ul>
+<?php wp_nav_menu([
+              'theme-location' => 'mobile'])?>
 </div>
       <header class="header">
         <div class="header-main">
