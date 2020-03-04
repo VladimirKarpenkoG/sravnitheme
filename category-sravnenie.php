@@ -51,10 +51,10 @@ get_header();?>
           <td class="comparison__cell"><?=$field['label']?></td>
           <?php foreach($reviews as $review):
                 $field_content = get_field($field['name'], $review->ID);
-
+                $incorrect = '<i class="fas fa-times">';
                 if(is_array($field_content)) {
                     if(count($field_content) == 0)
-                      $value = '<i class="fas fa-times">';
+                      $value = $incorrect;
                     else 
                       $value = implode(', ' , array_column($field_content, 'label'));
                 } elseif(is_bool($field_content)) {
@@ -63,7 +63,7 @@ get_header();?>
                 } else $value = $field_content;
             
             ?>
-            <td class="comparison__cell"><?= $value?></td>
+            <td class="comparison__cell"><?= $value != '' ? $value:  $incorrect ?></td>
           <?php endforeach?>
         </tr>
           <?php endforeach;?>
