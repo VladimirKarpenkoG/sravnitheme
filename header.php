@@ -40,7 +40,7 @@
 <body <?php body_class(); ?>>
 <div id="page">
 <div class="header-mobile__menu" id="mobile-menu" style="display: none">
-<?php wp_nav_menu(['theme-location' => 'mobile', 'menu_class' => 'mm-listview'])?>
+<?php wp_nav_menu(['theme_location' => 'mobile', 'menu_class' => 'mm-listview'])?>
 </div>
       <header class="header">
         <div class="header-main">
@@ -64,7 +64,7 @@
         <div class="container">
           <nav class="header-nav menu-main" aria-label="Главная">
             <?php wp_nav_menu([
-              'theme-location' => 'primary',
+              'theme_location' => 'primary',
               'walker'=> new SravniWalker()])?>
           </nav>
           <div class="search">

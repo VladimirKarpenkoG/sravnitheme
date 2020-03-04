@@ -4,7 +4,7 @@
         <div class="container">
           <nav class="footer-nav menu-main" aria-label="Подвал">
             <?php wp_nav_menu([
-              'theme-location' => 'footer',
+              'theme_location' => 'footer',
               'walker'=> new SravniWalker()])?>
           </nav>
           <div class="footer__info"><img class="footer__logo" src="/wp-content/themes/sravnitheme/img/footer-logo.svg">
