@@ -167,10 +167,25 @@ class K8FinalAnswer {
         $args['meta_query'] = $meta_query;
         $query = new wp_query($args);
         $services = $query->posts;
+
         if($services) {
+            $reviews_ids = [];
             foreach($services as $service) {
-                $img = get_the_post_thumbnail_url(get_field('review', $service->ID));
-                $this->result[] = new K8AnswerReview($service->post_title, $img, $service->ID);
+                $reviews_ids[] = get_field('review', $service->ID);
+            }
+
+            $reviews_args = [
+                'post_type' => 'k8pt_review',
+                'limit' => '-1',
+                'post__in' => array_unique($reviews_ids),
+                'meta_key' => 'k8_cmn_display_fields',
+                'meta_value' => 1
+            ];
+            $query = new wp_query($reviews_args);
+            $reviews = $query->posts;
+            foreach($reviews as $review) {
+                $img = get_the_post_thumbnail_url($review->ID);
+                $this->result[] = new K8AnswerReview(get_field('k8_cmn_service_name', $review->ID), $img, $review->ID);
             }
             $this->a = 'Мы нашли следующие обзоры';
             $this->modal = new K8AnswerModal();

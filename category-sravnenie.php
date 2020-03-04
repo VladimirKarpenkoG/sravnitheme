@@ -6,43 +6,41 @@
  *
  * @package Reacher89
  */
-ini_set('error_reporting', E_ALL);
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
  
-$services = null;
+$reviews = null;
 
 
  if(isset($_GET['variant'])) {
 
     $tax_query = null;
     $args=array(
-    'post_type' => 'services',
+    'post_type' => 'k8pt_review',
     'post__in' => $_GET['variant'],
     'orderby'=> 'rand',
-    'tax_query' => $tax_query
 );
-$services = new wp_query($args);
-$services = $services->get_posts();
+$reviews = new wp_query($args);
+$reviews = $reviews->get_posts();
  }
 get_header();?>
 <main>
-    <?php if($services):?>
+    <?php if($reviews):?>
     <div class="comparison__container">
       <table class="comparison__table">
         <tr class="comparison__row comparison__heading">
           <th class="comparison__cell">Название</th>
-          <?php foreach($services as $service):?>
+
+          <?php foreach($reviews as $review):?>
           <th class="comparison__cell">
-            <a href="<?=get_post_permalink(get_field('review', $service->ID))?>" target="-_blank">
-              <?=$service->post_title?>
+            <a href="<?=get_post_permalink($review->ID)?>" target="_blank">
+              <?=get_field('k8_cmn_service_name', $review->ID)?>
             </a>
           </th>
           <?php endforeach;?>
+
         </tr>
 
         <?php 
-        $review_id = get_field('review', $services[0]->ID);
+        $review_id = $reviews[0]->ID;
         $groups = acf_get_field_groups(['post_id' => $review_id]);
         usort($groups, function ($a, $b) { return $a['menu_order'] - $b['menu_order']; });
         $groupID = $groups[count($groups)-1]['ID'];
@@ -51,20 +49,21 @@ get_header();?>
         ?>
         <tr class="comparison__row">
           <td class="comparison__cell"><?=$field['label']?></td>
-          <?php foreach($services as $service):
-                $review = get_post(get_field('review', $service->ID));
-                $field_content = get_field($field['name'], $review);
-                
+          <?php foreach($reviews as $review):
+                $field_content = get_field($field['name'], $review->ID);
+
                 if(is_array($field_content)) {
-                    $value = implode(', ' , array_column($field_content, 'label'));
-                } elseif($field_content == "" || is_bool($field_content)) {
-                    
+                    if(count($field_content) == 0)
+                      $value = '<i class="fas fa-times">';
+                    else 
+                      $value = implode(', ' , array_column($field_content, 'label'));
+                } elseif(is_bool($field_content)) {
                     $class = $field_content ? 'fa-check': 'fa-times';
                     $value = '<i class="fas ' . $class . '">';
                 } else $value = $field_content;
             
             ?>
-            <td class="comparison__cell"><?= $value ?></td>
+            <td class="comparison__cell"><?= $value?></td>
           <?php endforeach?>
         </tr>
           <?php endforeach;?>

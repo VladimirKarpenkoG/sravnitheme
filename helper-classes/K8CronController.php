@@ -26,4 +26,12 @@ class K8CronController {
             update_field('serv_filter_price', $new_price, $service->ID);
         }
     }
+
+    public static function updateFilterGbSizes() {
+        $size_mb = get_field('size_mb', $service->ID);
+        $size_gb = get_field('size_gb', $service->ID);
+        $size_tb = get_field('size_tb', $service->ID);
+        if($size_g)
+        update_field('serv_filter_size_gb', $size, $service->ID);
+    }
 }
