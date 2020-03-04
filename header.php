@@ -46,7 +46,8 @@
       ym(59204332, "init", {
            clickmap:true,
            trackLinks:true,
-           accurateTrackBounce:true
+           accurateTrackBounce:true,
+           webvisor:true
       });
    </script>
    <noscript><div><img src="https://mc.yandex.ru/watch/59204332" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
