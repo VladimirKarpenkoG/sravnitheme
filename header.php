@@ -40,8 +40,7 @@
 <body <?php body_class(); ?>>
 <div id="page">
 <div class="header-mobile__menu" id="mobile-menu" style="display: none">
-<?php wp_nav_menu([
-              'theme-location' => 'mobile'])?>
+<?php wp_nav_menu(['theme-location' => 'mobile', 'menu_class' => 'mm-listview'])?>
 </div>
       <header class="header">
         <div class="header-main">
