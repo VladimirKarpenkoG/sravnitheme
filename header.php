@@ -62,7 +62,7 @@
       <header class="header">
         <div class="header-main">
           <div class="container">
-            <div class="header-inner"><a class="header__home-link" href="#" aria-label="Main page"><img class="header__logo" src="/wp-content/themes/sravnitheme/img/logo_small.svg"></a>
+            <div class="header-inner"><a class="header__home-link" href="<?=get_home_url('/')?>" aria-label="Main page"><img class="header__logo" src="/wp-content/themes/sravnitheme/img/logo_small.svg"></a>
               <?php /*
               <div class="header__buttons">
                 <div class="dropdown dropdown--theme_btn">
@@ -89,7 +89,7 @@
           </div>
         </div>
       </header>
-      <div class="header-mobile"><a class="header__home-link"><img class="header-mobile__logo" src="/wp-content/themes/sravnitheme/img/logo_small.svg"></a>
+      <div class="header-mobile"><a class="header__home-link" href="<?=get_home_url('/')?>"><img class="header-mobile__logo" src="/wp-content/themes/sravnitheme/img/logo_small.svg"></a>
         <div class="hamburger hamburger--slider js-hamburger">
           <div class="hamburger-box">
             <div class="hamburger-inner"></div>
