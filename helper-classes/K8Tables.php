@@ -8,38 +8,38 @@
         const PROJECT_MANAGER_TAX_ID = 30;
 
         static $pms_fields = [
-            'boolean' => ['k8_pms_web_version', 'k8_pms_audio', 'k8_pms_video', 'k8_pms_chat'],
+            'boolean' =>['k8_cmn_free', 'k8_pms_web_version', 'k8_pms_audio', 'k8_pms_video', 'k8_pms_chat'],
             'group' => ['k8_pms_desktop_app', 'k8_pms_mobile_app', 'k8_pms_sec_measures'],
-            'text' => ['k8_pms_att', 'vk8_pms_srok']
+            'text' => ['k8_cmn_lang','k8_pms_att', 'vk8_pms_srok']
         ];
 
         static $messenger_fields = [
-            'boolean' => ['k8_msg_audio', 'k8_msg_video', 'k8_msg_konf', 'k8_msg_secret', 'k8_msg_web'],
+            'boolean' => ['k8_cmn_free', 'k8_msg_audio', 'k8_msg_video', 'k8_msg_konf', 'k8_msg_secret', 'k8_msg_web'],
             'group' => ['k8_msg_desk', 'k8_msg_mob', 'k8_msg_alg', 'k8_msg_prot'],
-            'text' => ['k8_msg_att']
+            'text' => ['k8_cmn_lang', 'k8_msg_att']
         ];
 
         static $pass_manager_fields = [
-            'boolean' => ['k8_pass_tip_loc', 'k8_pass_tip_cld', 'k8_pass_plug', 'k8_pass_integr'],
+            'boolean' => ['k8_cmn_free', 'k8_pass_tip_loc', 'k8_pass_tip_cld', 'k8_pass_plug', 'k8_pass_integr'],
             'group' => ['k8_pass_desk', 'k8_pass_mob', 'k8_pass_alg',],
-            'text' => ['k8_pass_val']
+            'text' => ['k8_cmn_lang', 'k8_pass_val']
         ];
 
         static $antivirus_fields = [
-            'boolean' => ['k8_vir_abill', 'k8_vir_game', 'k8_vir_auto', 'k8_vir_ext'],
+            'boolean' => ['k8_cmn_free', 'k8_vir_abill', 'k8_vir_game', 'k8_vir_auto', 'k8_vir_ext'],
             'group' => ['k8_vir_os', 'k8_vir_mob'],
-            'text' => ['k8_vir_srok']
+            'text' => ['k8_cmn_lang', 'k8_vir_srok']
         ];
         static $cloud_services_fields = [
-            'boolean' => ['k8_cld_integr'],
+            'boolean' => ['k8_cmn_free', 'k8_cld_integr'],
             'group' => ['k8_cld_dsc', 'k8_cld_app', 'k8_cld_alg', 'k8_cld_add'],
-            'text' => ['k8_cld_vol']
+            'text' => ['k8_cmn_lang', 'k8_cld_vol']
         ];
 
         static $email_fields = [
-            'boolean' => ['k8_eml_out', 'k8_eml_thun', 'k8_eml_bat', 'k8_eml_pop', 'k8_eml_imap', 'k8_eml_smtp','k8_eml_ssl','k8_eml_tls'],
+            'boolean' => ['k8_cmn_free', 'k8_eml_out', 'k8_eml_thun', 'k8_eml_bat', 'k8_eml_pop', 'k8_eml_imap', 'k8_eml_smtp','k8_eml_ssl','k8_eml_tls'],
             'group' => ['k8_eml_own_domain', 'k8_eml_osapp','k8_eml_mery'],
-            'text' => ['k8_eml_vol','k8_eml_att','k8_eml_tim']
+            'text' => ['k8_cmn_lang', 'k8_eml_vol','k8_eml_att','k8_eml_tim']
         ];
 
 

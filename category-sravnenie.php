@@ -9,17 +9,18 @@
  
 $reviews = null;
 
+$cmn_fields = ['k8_cmn_lang','k8_cmn_free'];
 
- if(isset($_GET['variant'])) {
+  if(isset($_GET['variant'])) {
 
     $tax_query = null;
-    $args=array(
+    $args = [
     'post_type' => 'k8pt_review',
     'post__in' => $_GET['variant'],
-    'orderby'=> 'rand',
-);
+    'orderby'=> 'rand'];
 $reviews = new wp_query($args);
 $reviews = $reviews->get_posts();
+
  }
 get_header();?>
 <main>
@@ -45,7 +46,13 @@ get_header();?>
         usort($groups, function ($a, $b) { return $a['menu_order'] - $b['menu_order']; });
         $groupID = $groups[count($groups)-1]['ID'];
         $custom_fields = acf_get_fields($groupID);
-        foreach($custom_fields as $field):
+        $common_fields = [];
+        foreach($cmn_fields as $cmn_field){
+          $common_fields[] = get_field_object($cmn_field, $review_id);
+        }
+        $fields = array_merge($common_fields, $custom_fields);
+
+        foreach($fields as $field):
         ?>
         <tr class="comparison__row">
           <td class="comparison__cell"><?=$field['label']?></td>
