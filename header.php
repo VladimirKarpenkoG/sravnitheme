@@ -57,7 +57,7 @@
 <body <?php body_class(); ?>>
 <div id="page">
 <div class="header-mobile__menu" id="mobile-menu" style="display: none">
-<?php wp_nav_menu(['theme_location' => 'mobile', 'menu_class' => 'mm-listview'])?>
+<?php wp_nav_menu(['theme_location' => 'mobile', 'menu_class' => 'mm-listview','walker'=> new MobileWalker()])?>
 </div>
       <header class="header">
         <div class="header-main">
