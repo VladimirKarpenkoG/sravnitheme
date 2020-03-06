@@ -9,7 +9,7 @@
  
 $reviews = null;
 
-$cmn_fields = ['k8_cmn_lang','k8_cmn_free'];
+$cmn_fields = ['k8_cmn_prc','k8_cmn_lang','k8_cmn_free'];
 
   if(isset($_GET['variant'])) {
 
@@ -57,20 +57,30 @@ get_header();?>
         <tr class="comparison__row">
           <td class="comparison__cell"><?=$field['label']?></td>
           <?php foreach($reviews as $review):
+
                 $field_content = get_field($field['name'], $review->ID);
                 $incorrect = '<i class="fas fa-times">';
-                if(is_array($field_content)) {
+                if($field['name'] == 'k8_cmn_prc'){
+                  $value = '';
+                  foreach($field_content as $tariff) {
+                    $value .= $tariff['tarif_name'] . ' - ' . $tariff["curr"]["label"] . $tariff['amount_money']. ' / ' . $tariff['datte']['label']. '<br>';
+                  }
+                } elseif(is_array($field_content)) {
+
                     if(count($field_content) == 0)
                       $value = $incorrect;
                     else 
                       $value = implode(', ' , array_column($field_content, 'label'));
+
                 } elseif(is_bool($field_content)) {
+
                     $class = $field_content ? 'fa-check': 'fa-times';
                     $value = '<i class="fas ' . $class . '">';
+
                 } else $value = $field_content;
             
             ?>
-            <td class="comparison__cell"><?= $value != '' ? $value:  $incorrect ?></td>
+            <td class="comparison__cell"><?= $value != '' ? str_replace(';', '<br>', $value):  $incorrect ?></td>
           <?php endforeach?>
         </tr>
           <?php endforeach;?>

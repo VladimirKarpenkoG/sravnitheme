@@ -5,7 +5,7 @@ if($tarrifs):?>
     <div class="info info__list">
         <div class="info__title">Тарифы</div>
         <?php foreach($tarrifs as $tariff):?>
-            <div class="info__value"><?php echo $tariff['tarif_name'] . ' - ' . $tariff["curr"]["label"] . $tariff['amount_money']. '/месяц'?></div>
+            <div class="info__value"><?php echo $tariff['tarif_name'] . ' - ' . $tariff["curr"]["label"] . $tariff['amount_money']. ' / ' . $tariff['datte']['label']?></div>
         <?php endforeach; ?>
     </div>
 </div>
