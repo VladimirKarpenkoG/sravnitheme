@@ -232,3 +232,7 @@ add_filter( 'category_template', 'new_subcategory_hierarchy' );
 if(isset($_GET['update_filter_price'])) {
 	K8CronController::updateFilterPrices();
 }
+
+if(isset($_GET['update_filter_size'])) {
+	K8CronController::updateFilterGbSizes();
+}
