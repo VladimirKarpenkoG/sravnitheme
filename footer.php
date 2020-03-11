@@ -7,7 +7,7 @@
               'theme_location' => 'footer',
               'walker'=> new SravniWalker()])?>
           </nav>
-          <div class="footer__info"><img class="footer__logo" src="/wp-content/themes/sravnitheme/img/footer-logo.svg"  alt="<?=__e('Логотип сайта "Сравни"')?>">
+          <div class="footer__info"><img class="footer__logo" src="/wp-content/themes/sravnitheme/img/footer-logo.svg"  alt="<?=__('Логотип сайта "Сравни"')?>">
             <address class="footer__address">
             <a class="address__link address__link--phone" href="tel:+74996095132">
               <span class="address__text">+7-499-609 41 32</span>
