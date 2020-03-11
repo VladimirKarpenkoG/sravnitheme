@@ -102,7 +102,7 @@ class K8FinalAnswer {
         foreach($requests as $request) {
             
             if($request->value[0] == 's' || $request->key == 's') continue;
-            if(empty($meta_query)) $meta_query['relation'] = 'AND';
+            if(!empty($meta_query) && count($meta_query) > 1) $meta_query['relation'] = 'AND';
 
             if($request->key == 'k8tax_group') {  
                 $args['tax_query'][] = [
@@ -165,6 +165,7 @@ class K8FinalAnswer {
         }
 
         $args['meta_query'] = $meta_query;
+        //var_dump($args);
         $query = new wp_query($args);
         $services = $query->posts;
 
