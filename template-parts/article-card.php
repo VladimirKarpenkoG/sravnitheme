@@ -11,7 +11,7 @@
 	</div>
 	<div class="article__card-controls">
 		<div class="article__card-rating">
-			<img class="article__card-rating-image" src="/wp-content/themes/sravnitheme/icons/rate-icon.svg" alt='<?php __('Комментарии');?>'>
+			<img class="article__card-rating-image" src="/wp-content/themes/sravnitheme/icons/rate-icon.svg" alt='<?= __('Комментарии'); ?>'>
 			<span class="article__card-rating-count"><?= get_comments_number() ?></span>
 		</div>
 		<a class="btn article__card-link" href="<?=get_permalink()?>">Читать</a>

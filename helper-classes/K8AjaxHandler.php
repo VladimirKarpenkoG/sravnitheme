@@ -115,7 +115,15 @@ class K8FinalAnswer {
 
             if($request->key == 'serv_filter_price' || $request->key == 'serv_filter_size_gb') {
 
-                if(!$request->value[0] && $request->value[1]) {
+                if($request->value[0] && $request->value[1]) {
+                    $meta_query[] = [
+                        [
+                            'key' => $request->key,
+                            'value' => [$request->value[0], $request->value[1]],
+                            'compare' => "BETWEEN"
+                        ]
+                ];
+                }elseif(!$request->value[0] && $request->value[1] || $request->value[1] === 0) {
                     $meta_query[] = [
                             [
                                 'key' => $request->key,
@@ -123,9 +131,7 @@ class K8FinalAnswer {
                                 'compare' => '<='
                             ]
                     ];
-                }
-
-                if($request->value[0] && !$request->value[1]) {
+                }elseif($request->value[0] && !$request->value[1]) {
                     $meta_query[] = [
                             [
                                 'key' => $request->key,
@@ -135,15 +141,6 @@ class K8FinalAnswer {
                     ];
                 }
 
-                if($request->value[0] && $request->value[1]) {
-                    $meta_query[] = [
-                        [
-                            'key' => $request->key,
-                            'value' => [$request->value[0], $request->value[1]],
-                            'compare' => "BETWEEN"
-                        ]
-                ];
-                }
                 continue;
             }
 
@@ -165,7 +162,6 @@ class K8FinalAnswer {
         }
 
         $args['meta_query'] = $meta_query;
-        //var_dump($args);
         $query = new wp_query($args);
         $services = $query->posts;
 
