@@ -113,7 +113,7 @@ class K8FinalAnswer {
                 continue;
             }
 
-            if($request->key == 'serv_filter_price') {
+            if($request->key == 'serv_filter_price' || $request->key == 'serv_filter_size_gb') {
 
                 if(!$request->value[0] && $request->value[1]) {
                     $meta_query[] = [
