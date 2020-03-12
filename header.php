@@ -89,7 +89,7 @@
           </div>
         </div>
       </header>
-      <div class="header-mobile"><a class="header__home-link" href="<?=get_home_url('/')?>"><img class="header-mobile__logo" src="/wp-content/themes/sravnitheme/img/logo_small.svg" alt="<?=__('Название сайта "Сравни"')?>"></a>
+      <div class="header-mobile"><a class="header__home-link" href="<?=get_home_url('/')?>"><img class="header-mobile__logo" src="/wp-content/themes/sravnitheme/img/logo_small.svg" alt='<?=__('Название сайта "Сравни"')?>'></a>
         <div class="hamburger hamburger--slider js-hamburger">
           <div class="hamburger-box">
             <div class="hamburger-inner"></div>
