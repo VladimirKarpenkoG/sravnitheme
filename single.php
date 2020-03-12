@@ -23,7 +23,7 @@ get_header();
         </div>
 
         <div class="article__header-img">
-        <img src="<?= get_field('k8_cmn_illustration') ? wp_get_attachment_image_url( get_field('k8_cmn_illustration'), 'large' ): the_post_thumbnail_url('large') ?>">
+        <img src="<?= get_field('k8_cmn_illustration') ? wp_get_attachment_image_url( get_field('k8_cmn_illustration'), 'large' ): the_post_thumbnail_url('large') ?>" alt='Иллюстрация статьи "<?= $post->post_title?>"'>
         </div>
 
       </header>
