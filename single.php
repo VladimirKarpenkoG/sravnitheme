@@ -10,16 +10,7 @@
 Template Name: Single page
 */
 $accordions = get_field('k8_cmn_accordions');
-get_header();
-$pidd = get_the_ID();
-if( has_category( 'novosti', $pidd ) || has_category( 'news', $pidd ) ) :	 ?>
-	<script data-dimm="mth-fu" type="application/ld+json">
-  <?= K8Schema::getNewsArticle([
-		'pid' => $pidd,
-		'author' => get_the_author(),
-	])?>
-	</script>
-  <?php endif;?>
+get_header();?>
 	<main class="article-page">
     <article class="article">
       <header class="article__header">
