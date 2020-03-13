@@ -89,7 +89,7 @@ class K8Schema
 		));
 		if ( is_array($attachments) && count($attachments) > 0 ) {
 			foreach ($attachments as $attach) {
-				$url = K8Help::getImgUrl( $attach->ID, 'large' );
+				$url = Kd89Helper::getImgUrl( $attach->ID, 'large' );
 				( strpos( $url,'.png' ) || strpos( $url,'.jpg' ) || strpos( $url,'.jpeg' ) ) ? $img_urls[] = $url : '';
 			}
 		}
