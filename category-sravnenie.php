@@ -24,6 +24,7 @@ $reviews = $reviews->get_posts();
  }
 get_header();?>
 <main>
+  <h1 class="article__title"><?php single_term_title(); ?></h1>
     <?php if($reviews):?>
     <div class="comparison__container">
       <table class="comparison__table">
@@ -61,6 +62,10 @@ get_header();?>
                 $field_content = get_field($field['name'], $review->ID);
                 $incorrect = '<i class="fas fa-times">';
                 if($field['name'] == 'k8_cmn_prc'){
+                  if(!$field_content) {
+                    $value = $incorrect; 
+                  break;
+                  }
                   $value = '';
                   foreach($field_content as $tariff) {
                     $value .= $tariff['tarif_name'] . ' - ' . $tariff["curr"]["label"] . $tariff['amount_money']. ' / ' . $tariff['datte']['label']. '<br>';

@@ -9,6 +9,7 @@
 
 get_header();?>
 <main>
+<h1 class="article__title"><?php single_term_title(); ?></h1>
     <div class="tab">
       <ul class="tab__list" role="tabblist">
         <li class="tab__item"><a class="btn btn--tab" href="?sort=popular">Популярные</a></li>

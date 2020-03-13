@@ -228,6 +228,13 @@ if ( ! function_exists( 'sravni_query_vars_filter' ) ) {
 
 add_filter( 'category_template', 'new_subcategory_hierarchy' );
 
+add_filter( 'rank_math/frontend/canonical', function( $canonical ) {
+	if (is_paged()) {
+		$object = get_queried_object();
+		return get_term_link( $object->term_id );
+	}
+	return $canonical;
+});
 
 if(isset($_GET['update_filter_price'])) {
 	K8CronController::updateFilterPrices();

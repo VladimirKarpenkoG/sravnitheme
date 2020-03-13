@@ -119,7 +119,7 @@ class K8FinalAnswer {
                     $meta_query[] = [
                         [
                             'key' => $request->key,
-                            'value' => [$request->value[0], $request->value[1]],
+                            'value' => [$request->value[0] - 0.01, $request->value[1] + 0.01],
                             'compare' => "BETWEEN"
                         ]
                 ];
