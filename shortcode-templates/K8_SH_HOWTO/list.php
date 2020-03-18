@@ -8,14 +8,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 // echo '</pre>';
 
 if( is_array( $k8_acf_howto_stp ) && count( $k8_acf_howto_stp ) > 0 ) : ?>
+	<?php if($k8_content) echo $k8_content; ?>
 	<ul>
 		<?php 
 		$c = 1;
 		foreach ($k8_acf_howto_stp as $item): ?>
-            <li>
-            <span><?= $item['head']; ?></span>
+            <li  id="howto_<?= $c ?>">
+            	<p><strong><?= $item['head']; ?></strong> <?= strip_tags($item['txt'], '<a>') ?></p>
             </li>
-			</div><!-- .k8howto__item -->
 		<?php endforeach;?>
     </ul>    
 <? endif; ?>

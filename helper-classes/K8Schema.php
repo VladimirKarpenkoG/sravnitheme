@@ -157,6 +157,7 @@ class K8Schema
 					"image" => wp_get_attachment_image_src( $item["img"], 'large' )[0],
 					"url" => $k8_current_url . '/#howto_' . $c,
 				];
+				if(!$item["img"]) unset($datta['step'][count($datta['step']) -1]['image']);
 				$c++;
 			endforeach;
 		}

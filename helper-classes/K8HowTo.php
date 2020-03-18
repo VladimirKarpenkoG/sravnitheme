@@ -165,7 +165,7 @@ class K8HowTo {
 						'name' => 'k8_acf_howto_supply',
 						'type' => 'repeater',
 						'instructions' => '',
-						'required' => 1,
+						'required' => 0,
 						'conditional_logic' => 0,
 						'wrapper' => array(
 							'width' => '',
@@ -205,7 +205,7 @@ class K8HowTo {
 						'name' => 'k8_acf_howto_tool',
 						'type' => 'repeater',
 						'instructions' => '',
-						'required' => 1,
+						'required' => 0,
 						'conditional_logic' => 0,
 						'wrapper' => array(
 							'width' => '',

@@ -30,10 +30,5 @@ get_header();
 
 
 		?>
-			<?php 
-			
-			new Kd89Bread;  
-			
-			?>
 <?php
 get_footer();
