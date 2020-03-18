@@ -15,6 +15,9 @@ if( is_array( $k8_acf_howto_stp ) && count( $k8_acf_howto_stp ) > 0 ) : ?>
 		foreach ($k8_acf_howto_stp as $item): ?>
             <li  id="howto_<?= $c ?>">
             	<p><strong><?= $item['head']; ?></strong> <?= strip_tags($item['txt'], '<a>') ?></p>
+				<p><?= Kd89Helper::getImgHtml([
+							'img_id' => $item['img'],
+							'size' => 'large']); ?></p>
             </li>
 		<?php endforeach;?>
     </ul>    
