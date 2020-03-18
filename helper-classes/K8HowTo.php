@@ -56,6 +56,16 @@ class K8HowTo {
 				'title' => 'HowTo',
 				'fields' => array(
 					array(
+						'key' => 'field_5e26fd1ca1488',
+						'label' => 'Genarate Schema',
+						'name' => 'k8_acf_gen_schema',
+						'type' => 'true_false',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'default_value' => 1,
+					),
+					array(
 						'key' => 'field_5e26f08d49f08',
 						'label' => 'Steps',
 						'name' => 'k8_acf_howto_stp',

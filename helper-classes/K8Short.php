@@ -127,6 +127,7 @@ class K8Short
 		$k8_acf_howto_stp =	get_field('k8_acf_howto_stp', $atts['id']);
 		$k8_acf_howto_supply =	get_field('k8_acf_howto_supply', $atts['id']);
 		$k8_acf_howto_tool =	get_field('k8_acf_howto_tool', $atts['id']);
+		$k8_acf_gen_schema =	get_field('k8_acf_gen_schema', $atts['id']);
 
 		$schema = K8Schema::getHowTo([
 			'pid' => $atts['id'],
@@ -141,7 +142,8 @@ class K8Short
 		wp_enqueue_script( 'k8-libs-lightgallery-js' );
 		wp_enqueue_style( 'k8_sh_howto-css' );
 		ob_start();
-		echo '<script type="application/ld+json">' . $schema . '</script>';
+		if($k8_acf_gen_schema) echo '<script type="application/ld+json">' . $schema . '</script>';
+		
 		include $this->templ_url . $tag . '/list.php';
 		$html = ob_get_clean();
 		return $html;
