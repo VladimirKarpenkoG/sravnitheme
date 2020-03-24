@@ -35,9 +35,9 @@ get_header();?>
           <div class="article__author-name">Автор: <?= get_the_author('',false )?></div>
         </div>
       </div>
-        <section class="article__content" style="padding-top: 50px;">
-        <?= the_content(); ?>
-            <div class="variant-list variant-list--downloads">
+        <section class="article__content" style="padding-top: 70px;">
+            <?= the_content(); ?>
+            <div class="variant-list variant-list--downloads" style="padding-top: 30px;">
                 <?php foreach($links as $link):?>
                 <div class="variant-list__el"><a class="variant-opts" href="<?=$link['srv_dl_link']?>" rel="nofollow" target="_blank">
                     <div class="variant-opts__title"><?=$link['srv_dl_link_label']?></div><i class="btn__ico fas fa-arrow-alt-circle-down"></i></a>

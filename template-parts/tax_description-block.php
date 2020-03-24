@@ -9,6 +9,10 @@
 	if($term->taxonomy == 'k8tax_group' ) {
 		$description_content = get_post_type_object( 'k8pt_review' )->description;
 	} 
+	
+	if($term->taxonomy == 'k8dl_group' ) {
+		$description_content = get_post_type_object( 'downloads' )->description;
+	} 
 		
 	if($description_content):?>  
 		<blockquote class="message message--quote">
