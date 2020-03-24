@@ -17,6 +17,16 @@
         ]];
     }
 
+    if($post->post_type == 'downloads') {
+      $postterms = get_the_terms($post->ID,'k8dl_group');
+      $tax_query =[[
+          'taxonomy' => 'k8dl_group',
+          'field'    => 'term_id',
+          'terms'    => $postterms[0]->term_id,
+        ]];
+    }
+
+
     $args=array(
     'post_type' => $post->post_type,
     'post__not_in' => array($post->ID),
