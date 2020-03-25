@@ -10,14 +10,23 @@
 Template Name: Single page
 */
 $accordions = get_field('k8_cmn_accordions');
-get_header();?>
+get_header();
+?>
 	<main class="article-page">
     <article class="article">
       <header class="article__header">
         <div class="article__header-wrapper">
           <h1 class="article__title"><?= $post->post_title?></h1>
-          <?php if(false):?>
-            <div class="article__buttons"><a class="btn btn--review" href="javascript:void(0);">К сравнению!</a><a class="btn btn--green btn--download" href="javascript:void(0);"><span class="btn__text">Скачать</span><i class="btn__ico fas fa-arrow-alt-circle-down"></i></a></div>
+          <?php if(get_post_type() == 'k8pt_review'):
+            $downloads = get_field('k8_cmn_dl');
+            $terms = get_the_terms($post->ID,'k8tax_group');
+            $comparison_url = get_term_link(get_field('k8_service_group_category', $terms[0]));?>
+            <div class="article__buttons">
+              <a class="btn btn--review" href="<?=$comparison_url?>/?variant[]=<?=$post->ID?>">К сравнению!</a>
+              <?php if($downloads):?>
+              <a class="btn btn--green btn--download" href="<?=get_permalink($downloads)?>"><span class="btn__text">Скачать</span><i class="btn__ico fas fa-arrow-alt-circle-down"></i></a>
+              <?php endif;?>
+            </div>
           <?php endif;?>
         </div>
 
