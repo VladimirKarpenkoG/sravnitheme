@@ -22,7 +22,7 @@ get_header();
             $terms = get_the_terms($post->ID,'k8tax_group');
             $comparison_url = get_term_link(get_field('k8_service_group_category', $terms[0]));?>
             <div class="article__buttons">
-              <a class="btn btn--review" href="<?=$comparison_url?>/?variant[]=<?=$post->ID?>">К сравнению!</a>
+              <a class="btn btn--review" href="<?=$comparison_url?>?variant[]=<?=$post->ID?>">К сравнению!</a>
               <?php if($downloads):?>
               <a class="btn btn--green btn--download" href="<?=get_permalink($downloads)?>"><span class="btn__text">Скачать</span><i class="btn__ico fas fa-arrow-alt-circle-down"></i></a>
               <?php endif;?>
