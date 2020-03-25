@@ -11,11 +11,15 @@ get_header();?>
 <main>
 <h1 class="article__title"><?php single_term_title(); ?></h1>
     <div class="tab">
+      <?php
+      $term = get_queried_object(); 
+      if(get_post_type() != 'downloads' || $term->taxonomy != 'k8dl_group' ):?>
       <ul class="tab__list" role="tabblist">
         <li class="tab__item"><a class="btn btn--tab" href="?sort=popular">Популярные</a></li>
         <li class="tab__item"><a class="btn btn--tab" href="?sort=new">Новые</a></li>
         <li class="tab__item"><a class="btn btn--tab" href="?sort=old">Старые</a></li>
       </ul>
+      <?php endif;?>
       <section class="tab__panel">
         <div class="article-list">
 <?php while (have_posts() ) :the_post(); ?>
@@ -27,7 +31,6 @@ get_header();?>
 </section>
     </div>
     <section class="page__additional">
-		
 		<?php get_template_part( 'template-parts/tax_description-block', 'tax_description' );?>		
     	<?php if(false):?>
       <div class="social__block">
