@@ -243,3 +243,21 @@ if(isset($_GET['update_filter_price'])) {
 if(isset($_GET['update_filter_size'])) {
 	K8CronController::updateFilterGbSizes();
 }
+
+add_action('pre_get_posts', 'filter_even_tax');
+
+    function filter_even_tax( $query ){
+        if( $query->is_category('novosti', 'poleznaya_informaciya', 'instruktsii')):
+			$query->set('posts_per_page', 10);
+			add_filter( 'body_class','srv_add_even_body_class' );
+            return;
+        endif;
+	}
+	
+
+function srv_add_even_body_class( $classes ) {
+
+    $classes[] = 'even-elements';
+	return $classes;
+	
+}
