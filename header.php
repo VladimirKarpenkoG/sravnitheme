@@ -4,7 +4,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="yandex-verification" content="c0635b4c3191db7d" />
-  <meta id="viewport" name="viewport" content="width=414, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <meta id="viewport" name="viewport" content="initial-scale=1.0, maximum-scale=1, minimum-scale=1.0, user-scalable=yes, width=device-width">
     <script>
       //mobile viewport hack
       (function(){
@@ -13,6 +13,7 @@
       	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)   ) {
       
       	var ww = window.screen.width;
+        var dw = 'device-width';
       	var mw = 414; // min width of site
       	var ratio =  ww / mw; //calculate ratio
       	var viewport_meta_tag = document.getElementById('viewport');
@@ -20,7 +21,7 @@
       		viewport_meta_tag.setAttribute('content', 'initial-scale=' + ratio + ', maximum-scale=' + ratio * 1.4 + ', minimum-scale=' + ratio + ', user-scalable=yes, width=' + mw);
       	}
       	else { //regular size
-      		viewport_meta_tag.setAttribute('content', 'initial-scale=1.0, maximum-scale=1, minimum-scale=1.0, user-scalable=yes, width=' + ww);
+      		viewport_meta_tag.setAttribute('content', 'initial-scale=1.0, maximum-scale=1, minimum-scale=1.0, user-scalable=yes, width=device-width');
       	}
       	}
       }
