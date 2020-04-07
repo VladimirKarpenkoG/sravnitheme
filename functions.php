@@ -261,3 +261,22 @@ function srv_add_even_body_class( $classes ) {
 	return $classes;
 	
 }
+
+function yturbo_content_cf( $content ) {
+	$accordions = get_field('k8_cmn_accordions', get_the_ID());
+	if($accordions) {
+	foreach($accordions as $accordion){
+		$content .= "<h2>{$accordion['accordion_name']}</h2>";
+		$content .= $accordion['accordion_content'];
+
+		if($accordion["k8_cmn_inner_accordions"]) {
+			foreach($accordion["k8_cmn_inner_accordions"] as $inner_accordion) {
+				$content .= "<h3>{$inner_accordion['accordion_name']}</h3>";
+				$content .= $inner_accordion['accordion_content'];
+			}
+		}
+	}
+}
+    return $content;
+}
+add_filter( 'yturbo_the_content', 'yturbo_content_cf' );
