@@ -155,7 +155,7 @@ class K8Schema
 					"name" => $item["head"],
 					"text" => wp_strip_all_tags($item["txt"]),
 					"image" => wp_get_attachment_image_src( $item["img"], 'large' )[0],
-					"url" => $k8_current_url . '/#howto_' . $c,
+					"url" => $k8_current_url . "/#howto_{$pid}_{$c}",
 				];
 				if(!$item["img"]) unset($datta['step'][count($datta['step']) -1]['image']);
 				$c++;

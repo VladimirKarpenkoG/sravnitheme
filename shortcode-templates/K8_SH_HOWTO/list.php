@@ -15,7 +15,7 @@ if( is_array( $k8_acf_howto_stp ) && count( $k8_acf_howto_stp ) > 0 ) : ?>
 		foreach ($k8_acf_howto_stp as $item): ?>
             <li  
 			<?php if(!is_feed()):?>
-			id="howto_<?= $c ?>"
+			id="howto_<?= $atts['id'] . '_' .$item['num'] ?>"
 			<?php endif;?>
 			>
             	<p><strong><?= $item['head']; ?></strong> <?= strip_tags($item['txt'], '<a>') ?></p>
