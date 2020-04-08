@@ -142,7 +142,7 @@ class K8Short
 		wp_enqueue_script( 'k8-libs-lightgallery-js' );
 		wp_enqueue_style( 'k8_sh_howto-css' );
 		ob_start();
-		if($k8_acf_gen_schema) echo '<script type="application/ld+json">' . $schema . '</script>';
+		if($k8_acf_gen_schema && !is_feed()) echo '<script type="application/ld+json">' . $schema . '</script>';
 		
 		include $this->templ_url . $tag . '/list.php';
 		$html = ob_get_clean();

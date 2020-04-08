@@ -13,7 +13,11 @@ if( is_array( $k8_acf_howto_stp ) && count( $k8_acf_howto_stp ) > 0 ) : ?>
 		<?php 
 		$c = 1;
 		foreach ($k8_acf_howto_stp as $item): ?>
-            <li  id="howto_<?= $c ?>">
+            <li  
+			<?php if(!is_feed()):?>
+			id="howto_<?= $c ?>"
+			<?php endif;?>
+			>
             	<p><strong><?= $item['head']; ?></strong> <?= strip_tags($item['txt'], '<a>') ?></p>
 				<p><?= Kd89Helper::getImgHtml([
 							'img_id' => $item['img'],
