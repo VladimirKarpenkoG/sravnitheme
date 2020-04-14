@@ -44,10 +44,12 @@ get_header();
           <div class="article__author-name">Автор: <?= get_the_author('',false )?></div>
         </div>
       </div>
+      <?php if($accordions): ?>
       <div class="dropdown dropdown--theme_contents article__contents">
         <button class="btn dropdown__btn btn--sm" id="content-btn" aria-label="page content" aria-actions="content-list"><span><i class="mr-3 fas fa-list"></i>Содержание</span><i class="btn__ico fas fa-angle-down"></i></button>
         <ul class="dropdown__list" id="content-list" aria-labeledby="content-btn"></ul>
       </div>
+      <?php endif; ?>
       <section class="article__content">
         <?= the_content(); ?>
         <?php if(get_field('k8_cmn_display_fields')):?>
