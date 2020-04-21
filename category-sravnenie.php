@@ -56,7 +56,7 @@ get_header();?>
         foreach($fields as $field):
         ?>
         <tr class="comparison__row">
-          <td class="comparison__cell"><?=$field['label']?></td>
+          <td class="comparison__cell comparison__row-header"><?=$field['label']?></td>
           <?php foreach($reviews as $review):
 
                 $field_content = get_field($field['name'], $review->ID);
@@ -91,6 +91,14 @@ get_header();?>
           <?php endforeach;?>
       </table>
     </div>
+    <div class="comparison-settings__list">
+      <div class="comparison-settings__el">
+        <label class="comparison-settings__opts">
+          <div class="comparison-settings__opts-title">Оставить только различия</div>
+          <input class="comparison__display-unique" type="checkbox">
+        </label>
+    </div>
+  </div>
     <?php endif;?>
     <?php get_template_part( 'template-parts/variants-form', 'variants-form' );?>		
     <div class="tab">
