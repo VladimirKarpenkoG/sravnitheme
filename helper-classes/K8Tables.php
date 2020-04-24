@@ -120,11 +120,10 @@
 
         foreach($long_bool_fields as $field) {
             $field = get_field_object($field, $post_id);
-            if(empty($field['value'])) continue;
             $value = $field['value'] ? 'fa-check' : 'fa-times';
             $table_data[$field['label']] = '<i class="fas '. $value .'"></i>';
         }
-        
+
         include __DIR__ . '/templates/text-table.php';
     }
 
