@@ -26,12 +26,14 @@
         ];
 
         static $antivirus_fields = [
-            'boolean' => ['k8_cmn_free', 'k8_vir_abill', 'k8_vir_game', 'k8_vir_auto', 'k8_vir_ext'],
+            'boolean' => ['k8_cmn_free', 'k8_vir_game'],
+            'long_boolean' => ['k8_vir_abill', 'k8_vir_auto', 'k8_vir_ext'],
             'group' => ['k8_vir_os', 'k8_vir_mob'],
             'text' => ['k8_cmn_lang', 'k8_vir_srok']
         ];
         static $cloud_services_fields = [
-            'boolean' => ['k8_cmn_free', 'k8_cld_integr'],
+            'boolean' => ['k8_cmn_free'],
+            'long_boolean' => ['k8_cld_integr'],
             'group' => ['k8_cld_dsc', 'k8_cld_app', 'k8_cld_alg', 'k8_cld_add'],
             'text' => ['k8_cmn_lang', 'k8_cld_vol']
         ];
@@ -100,6 +102,7 @@
 
         $group_fields = self::getFields($tax_id, 'group');
         $text_fields = self::getFields($tax_id, 'text');
+        $long_bool_fields = self::getFields($tax_id, 'long_boolean');
         $table_data = [];
 
         foreach($group_fields as $field) {
@@ -115,6 +118,13 @@
             $table_data[$field['label']] = $field['value'];
         }
 
+        foreach($long_bool_fields as $field) {
+            $field = get_field_object($field, $post_id);
+            if(empty($field['value'])) continue;
+            $value = $field['value'] ? 'fa-check' : 'fa-times';
+            $table_data[$field['label']] = '<i class="fas '. $value .'"></i>';
+        }
+        
         include __DIR__ . '/templates/text-table.php';
     }
 
