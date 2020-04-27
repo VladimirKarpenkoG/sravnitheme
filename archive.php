@@ -10,6 +10,7 @@
 get_header();?>
 <main>
 <h1 class="article__title"><?php single_term_title(); ?></h1>
+<?php get_template_part( 'template-parts/tax_description-block', 'tax_description' );?>	
     <div class="tab">
       <?php
       $term = get_queried_object(); 
@@ -31,16 +32,8 @@ get_header();?>
 </section>
     </div>
     <section class="page__additional">
-		<?php get_template_part( 'template-parts/tax_description-block', 'tax_description' );?>		
     	<?php if(false):?>
-      <div class="social__block">
-        <ul class="social__list">
-          <li class="social__item"><a class="social__link" href="javascript:void(0);"><i class="fab fa-facebook-f"></i></a></li>
-          <li class="social__item"><a class="social__link" href="javascript:void(0);"><i class="fab fa-youtube"></i></a></li>
-          <li class="social__item"><a class="social__link" href="javascript:void(0);"><i class="fab fa-instagram"></i></a></li>
-          <li class="social__item"><a class="social__link" href="javascript:void(0);"><i class="fab fa-twitter"></i></a></li>
-        </ul>
-      </div>
+        <?php get_template_part( 'template-parts/social-block', 'social-block' );?>
       <?php endif; ?>
     </section>
   </main>   

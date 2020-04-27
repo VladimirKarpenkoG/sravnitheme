@@ -25,6 +25,7 @@ $reviews = $reviews->get_posts();
 get_header();?>
 <main>
   <h1 class="article__title"><?php single_term_title(); ?></h1>
+  <?php get_template_part( 'template-parts/tax_description-block', 'tax_description' );?>
     <?php if($reviews):?>
     <div class="comparison__container">
       <table class="comparison__table">
@@ -112,16 +113,15 @@ get_header();?>
       <section class="tab__panel">
         <div class="article-list">
 <?php while (have_posts() ) :the_post(); ?>
-  <?php get_template_part( 'template-parts/article-card', 'article-card' );?>		
+  <?php get_template_part( 'template-parts/article-card', 'article-card' );?>
 <?php endwhile;?>
 </div>
 <?php Kd89Helper::pagination();?>
 <? wp_reset_query();?>
 </section>
     </div>
-    <section class="page__additional">
-      <?php get_template_part( 'template-parts/tax_description-block', 'tax_description' );?>		
-      <?php get_template_part( 'template-parts/social-block', 'social-block' );?>		
+    <section class="page__additional">      
+      <?php get_template_part( 'template-parts/social-block', 'social-block' );?>
     </section>
   </main>   
 <?php

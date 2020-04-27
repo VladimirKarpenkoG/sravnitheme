@@ -15,7 +15,7 @@
 	} 
 		
 	if($description_content):?>  
-		<blockquote class="message message--quote">
+		<blockquote class="message message--quote message--description">
 			<?= strip_tags($description_content, '<a>')?>
       	</blockquote>
 <?php endif;  
