@@ -76,7 +76,7 @@ screen.colorDepth:screen.pixelDepth))+';u'+escape(document.URL)+
 <div class="header-mobile__menu" id="mobile-menu" style="display: none">
 <?php wp_nav_menu(['theme_location' => 'mobile', 'menu_class' => 'mm-listview','walker'=> new MobileWalker()])?>
 </div>
-      <header class="header">
+      <header class="header header--sticky">
         <div class="header-main">
           <div class="container">
             <div class="header-inner"><a class="header__home-link" href="<?=get_home_url('/')?>" aria-label="Main page"><img class="header__logo" src="/wp-content/themes/sravnitheme/img/logo_small.svg" alt="<?=__('Название сайта «Сравни»')?>"></a>
