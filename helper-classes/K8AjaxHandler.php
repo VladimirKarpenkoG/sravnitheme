@@ -73,6 +73,7 @@ class K8FilterAnswer {
     function prepareAnswer($question) {
         $this->q = $question['k8_option_title'];
         $this->key = $question['option_key'];
+        $this->opts[] = new K8FilterAnswerOption("Назад", "previous_question");
         $this->opts[] = new K8FilterAnswerOption("Не имеет значения", "s");
         foreach($question['option_answer'] as $answer) {
             $this->opts[] =  new K8FilterAnswerOption($answer['answer_label'], [$answer['answer_value'], $answer['answer_value_to']]);
