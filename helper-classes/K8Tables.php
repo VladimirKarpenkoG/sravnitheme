@@ -118,10 +118,12 @@
             $table_data[$field['label']] = $field['value'];
         }
 
-        foreach($long_bool_fields as $field) {
-            $field = get_field_object($field, $post_id);
-            $value = $field['value'] ? 'fa-check' : 'fa-times';
-            $table_data[$field['label']] = '<i class="fas '. $value .'"></i>';
+        if(is_array($long_bool_fields)) {
+            foreach($long_bool_fields as $field) {
+                $field = get_field_object($field, $post_id);
+                $value = $field['value'] ? 'fa-check' : 'fa-times';
+                $table_data[$field['label']] = '<i class="fas '. $value .'"></i>';
+            }
         }
 
         include __DIR__ . '/templates/text-table.php';
