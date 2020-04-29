@@ -80,18 +80,23 @@ screen.colorDepth:screen.pixelDepth))+';u'+escape(document.URL)+
         <div class="header-main">
           <div class="container">
             <div class="header-inner"><a class="header__home-link" href="<?=get_home_url('/')?>" aria-label="Main page"><img class="header__logo" src="/wp-content/themes/sravnitheme/img/logo_small.svg" alt="<?=__('Название сайта «Сравни»')?>"></a>
-              <?php /*
-              <div class="header__buttons">
-                <div class="dropdown dropdown--theme_btn">
-                  <button class="btn dropdown__btn btn--sm" id="lang-btn" aria-label="choose your language" aria-actions="lang-list"> <span>RUS</span><i class="btn__ico fas fa-angle-down"></i></button>
-                  <ul class="dropdown__list" id="lang-list" aria-labeledby="lang-btn">
-                    <li class="dropdown__item"><a class="dropdown__link">ENG</a></li>
-                    <li class="dropdown__item"><a class="dropdown__link">GER</a></li>
-                    <li class="dropdown__item"><a class="dropdown__link">RUS</a></li>
-                  </ul>
+              <div class="header__items">
+                <div class="search">
+                  <?php get_search_form(); ?>
                 </div>
-                <a class="btn btn--sm" href="javascript:void(0);">Вход</a>
-              </div>*/ ?>
+                <?php /*
+                <div class="header__buttons">
+                  <div class="dropdown dropdown--theme_btn">
+                    <button class="btn dropdown__btn btn--sm" id="lang-btn" aria-label="choose your language" aria-actions="lang-list"> <span>RUS</span><i class="btn__ico fas fa-angle-down"></i></button>
+                    <ul class="dropdown__list" id="lang-list" aria-labeledby="lang-btn">
+                      <li class="dropdown__item"><a class="dropdown__link">ENG</a></li>
+                      <li class="dropdown__item"><a class="dropdown__link">GER</a></li>
+                      <li class="dropdown__item"><a class="dropdown__link">RUS</a></li>
+                    </ul>
+                  </div>
+                  <a class="btn btn--sm" href="javascript:void(0);">Вход</a>
+                </div>*/ ?>
+              </div>
             </div>
           </div>
         </div>
@@ -101,9 +106,6 @@ screen.colorDepth:screen.pixelDepth))+';u'+escape(document.URL)+
               'theme_location' => 'primary',
               'walker'=> new SravniWalker()])?>
           </nav>
-          <div class="search">
-	  			<?php get_search_form(); ?>
-          </div>
         </div>
       </header>
       <div class="header-mobile"><a class="header__home-link" href="<?=get_home_url('/')?>"><img class="header-mobile__logo" src="/wp-content/themes/sravnitheme/img/logo_small.svg" alt='<?=__('Название сайта «Сравни»')?>'></a>
