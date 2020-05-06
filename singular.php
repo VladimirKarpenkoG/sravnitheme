@@ -46,8 +46,8 @@ get_header();
       </div>
       <?php if($accordions): ?>
       <div class="dropdown dropdown--theme_contents article__contents">
-        <button class="btn dropdown__btn btn--sm" id="content-btn" aria-label="page content" aria-actions="content-list"><span><i class="mr-3 fas fa-list"></i>Содержание</span><i class="btn__ico fas fa-angle-down"></i></button>
-        <ul class="dropdown__list" id="content-list" aria-labeledby="content-btn"></ul>
+        <button class="btn dropdown__btn btn--sm" id="content-btn"><span><i class="mr-3 fas fa-list"></i>Содержание</span><i class="btn__ico fas fa-angle-down"></i></button>
+        <ul class="dropdown__list" id="content-list" aria-labelledby="content-btn"></ul>
       </div>
       <?php endif; ?>
       <section class="article__content">
@@ -65,7 +65,7 @@ get_header();
 						<span class="accordion__title"><?= $accordion['accordion_name']?></span>
 						</button>
 					</h2>
-					<div class="accordion__panel" id="<?=$id?>__content" role="region" aria-labeledby="<?=$id?>__btn">
+					<div class="accordion__panel" id="<?=$id?>__content" role="region" aria-labelledby="<?=$id?>__btn">
 						<?= $accordion['accordion_content']?>
 
               <?php if($accordion["k8_cmn_inner_accordions"]):
@@ -76,7 +76,7 @@ get_header();
                   <span class="accordion__title"><?= $inner_accordion['accordion_name']?></span>
                   </button>
                 </h3>
-                <div class="accordion__panel" id="<?=$id?>__content" role="region" aria-labeledby="<?=$id?>__btn">
+                <div class="accordion__panel" id="<?=$id?>__content" role="region" aria-labelledby="<?=$id?>__btn">
                   <?= $inner_accordion['accordion_content']?>
                 </div>
               <?php 

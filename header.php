@@ -4,7 +4,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="yandex-verification" content="c0635b4c3191db7d" />
-  <meta id="viewport" name="viewport" content="initial-scale=1.0, maximum-scale=1, minimum-scale=1.0, user-scalable=yes, width=device-width">
+  <meta id="viewport" name="viewport" content="initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes, width=device-width">
     <script>
       //mobile viewport hack
       (function(){
@@ -88,7 +88,7 @@ screen.colorDepth:screen.pixelDepth))+';u'+escape(document.URL)+
                 <div class="header__buttons">
                   <div class="dropdown dropdown--theme_btn">
                     <button class="btn dropdown__btn btn--sm" id="lang-btn" aria-label="choose your language" aria-actions="lang-list"> <span>RUS</span><i class="btn__ico fas fa-angle-down"></i></button>
-                    <ul class="dropdown__list" id="lang-list" aria-labeledby="lang-btn">
+                    <ul class="dropdown__list" id="lang-list" aria-labelledby="lang-btn">
                       <li class="dropdown__item"><a class="dropdown__link">ENG</a></li>
                       <li class="dropdown__item"><a class="dropdown__link">GER</a></li>
                       <li class="dropdown__item"><a class="dropdown__link">RUS</a></li>

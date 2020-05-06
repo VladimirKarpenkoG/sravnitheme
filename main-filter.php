@@ -33,7 +33,9 @@ get_header();
 
       </div>
       <div class="banner-main__title">Сравни
-        <a href="#homepage-content" class="banner-main__down" rel="noindex, nofollow"></a>
+        <a href="#homepage-content" class="banner-main__down" rel="noindex, nofollow">
+          <span class="sr-only">Сравни — всё, что вы хотели узнать о разных сервисах!</span>
+        </a>
       </div>
     </div>
   </div>

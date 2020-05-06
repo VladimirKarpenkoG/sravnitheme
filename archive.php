@@ -15,7 +15,7 @@ get_header();?>
       <?php
       $term = get_queried_object(); 
       if(get_post_type() != 'downloads' || $term->taxonomy != 'k8dl_group' ):?>
-      <ul class="tab__list" role="tabblist">
+      <ul class="tab__list">
         <li class="tab__item"><a class="btn btn--tab" href="?sort=popular">Популярные</a></li>
         <li class="tab__item"><a class="btn btn--tab" href="?sort=new">Новые</a></li>
         <li class="tab__item"><a class="btn btn--tab" href="?sort=old">Старые</a></li>
