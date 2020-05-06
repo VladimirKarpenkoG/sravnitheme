@@ -38,7 +38,7 @@ get_header();
       <div class="article__author <?php if(!$accordions) echo 'article__author--no-toc';?>"><img class="article__author-image" src="<?= get_avatar_url($post->post_author)?>" alt="Автор: <?= get_the_author('',false )?>">
         <div class="article__author-info">
           <div class="article__author-create">Опубликовано: 
-            <time datetime="<?= get_the_date() ?>"><?= get_the_date() ?></time>
+            <time datetime="<?= get_the_modified_date() ?>"><?= get_the_modified_date() ?></time>
           </div>
           <hr class="article__author-hr">
           <div class="article__author-name">Автор: <?= get_the_author('',false )?></div>
