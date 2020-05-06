@@ -21,7 +21,7 @@
       		viewport_meta_tag.setAttribute('content', 'initial-scale=' + ratio + ', maximum-scale=' + ratio * 7 + ', minimum-scale=' + ratio + ', user-scalable=yes, width=' + mw);
       	}
       	else { //regular size
-      		viewport_meta_tag.setAttribute('content', 'initial-scale=1.0, maximum-scale=1, minimum-scale=1.0, user-scalable=yes, width=device-width');
+      		viewport_meta_tag.setAttribute('content', 'initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes, width=device-width');
       	}
       	}
       }
