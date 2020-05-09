@@ -8,7 +8,7 @@
 			</div>
 		</div>
 		<p class="article__card-text">
-		<?= strip_tags(get_the_content(),'<a>');?>
+		<?= strip_tags(get_the_excerpt(),'<a>');?>
 		</p>
 	</div>
 	<div class="article__card-controls">
