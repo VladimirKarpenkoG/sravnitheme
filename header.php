@@ -5,6 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="yandex-verification" content="c0635b4c3191db7d" />
   <meta id="viewport" name="viewport" content="initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes, width=device-width">
+  <link rel="dns-prefetch" href="https://mc.yandex.ru">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <script>
       //mobile viewport hack
       (function(){
