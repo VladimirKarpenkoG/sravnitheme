@@ -59,9 +59,10 @@
 </head>
 
 <body <?php body_class(); ?>>
-<!--LiveInternet counter--><script type="text/javascript">
-document.write('<a href="//http://www.liveinternet.ru/click" '+
-'target="_blank" class="d-none" rel="noopener"><img src="//counter.yadro.ru/hit?t54.1;r'+
+<!--LiveInternet counter-->
+<a id="liveinternet-link" href="//http://www.liveinternet.ru/click" target="_blank" class="d-none" rel="noopener"></a>
+<script type="text/javascript">
+document.getElementById('liveinternet-link').innerHTML = '<img src="//counter.yadro.ru/hit?t54.1;r'+
 
 escape(document.referrer)+((typeof(screen)=='undefined')?'':
 
@@ -72,8 +73,9 @@ screen.colorDepth:screen.pixelDepth))+';u'+escape(document.URL)+
 ';h'+escape(document.title.substring(0,150))+';'+Math.random()+
 '" alt="" title="LiveInternet: показано число просмотров и'+
 ' посетителей за 24 часа" '+
-'border="0" width="88" height="31"><\/a>')
-</script><!--/LiveInternet-->
+'border="0" width="88" height="31">';
+</script>
+<!--/LiveInternet-->
 <div id="page">
 <div class="header-mobile__menu" id="mobile-menu" style="display: none">
 <?php wp_nav_menu(['theme_location' => 'mobile', 'menu_class' => 'mm-listview','walker'=> new MobileWalker()])?>
