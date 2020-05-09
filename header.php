@@ -59,7 +59,7 @@
 <body <?php body_class(); ?>>
 <!--LiveInternet counter--><script type="text/javascript">
 document.write('<a href="//http://www.liveinternet.ru/click" '+
-'target="_blank" class="d-none"><img src="//counter.yadro.ru/hit?t54.1;r'+
+'target="_blank" class="d-none" rel="nofollow"><img src="//counter.yadro.ru/hit?t54.1;r'+
 
 escape(document.referrer)+((typeof(screen)=='undefined')?'':
 
