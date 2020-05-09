@@ -1,11 +1,13 @@
 <div class="article__card-wrapper">
 	<article class="article__card">
 	<div class="article__card-content">
-		<?= get_the_post_thumbnail( $id, 'thumbnail', array('class' => 'article__card-img') ); ?>
-		<div class="article__card-header">
-		<h2 class="article__card-title"><a href="<?=get_permalink()?>"><?= the_title()?></a></h2>
+		<div class="article__card-top">
+			<?= get_the_post_thumbnail( $id, 'thumbnail', array('class' => 'article__card-img') ); ?>
+			<div class="article__card-header">
+				<h2 class="article__card-title"><a href="<?=get_permalink()?>"><?= the_title()?></a></h2>
+			</div>
 		</div>
-		<p class="article__card-text need-truncate" data-max-lines="6">
+		<p class="article__card-text">
 		<?= strip_tags(get_the_content(),'<a>');?>
 		</p>
 	</div>
