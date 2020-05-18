@@ -58,9 +58,9 @@ get_header();
 		<?php
 			if($accordions):
         foreach($accordions as $accordion): 
-        $id = uniqid();?>
+        $id = Kd89Helper::makeSlug($accordion['accordion_name']);?>
           
-					<h2 class="accordion__header" id="<?=$id?>">
+					<h2 class="accordion__header" id="<?=Kd89Helper::makeSlug($accordion['accordion_name'])?>">
 					<button class="accordion__trigger" aria-expanded="true" aria-controls="<?=$id?>__content" id="<?=$id?>__btn">
 						<span class="accordion__title"><?= $accordion['accordion_name']?></span>
 						</button>
@@ -70,7 +70,7 @@ get_header();
 
               <?php if($accordion["k8_cmn_inner_accordions"]):
                 foreach($accordion["k8_cmn_inner_accordions"] as $inner_accordion):
-                  $id = uniqid(); ?>
+                  $id = Kd89Helper::makeSlug($inner_accordion['accordion_name']); ?>
                 <h3 class="accordion__header" id="<?=$id?>">
                 <button class="accordion__trigger" aria-controls="<?=$id?>__content" id="<?=$id?>__btn">
                   <span class="accordion__title"><?= $inner_accordion['accordion_name']?></span>
