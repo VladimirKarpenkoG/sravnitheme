@@ -130,7 +130,7 @@
 
 	static function makeSlug($string) {
 		$ctl = new \Cyr_To_Lat\Main();
-		$text = preg_replace('~[^\pL\d]+~u', '-', $ctl->ctl_sanitize_title($string));
+		$text = preg_replace('~[^\pL\d]+~u', '-', $ctl->transliterate($string));
 		$text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
 		$text = preg_replace('~[^-\w]+~', '', $text);
 		$text = trim($text, '-');
