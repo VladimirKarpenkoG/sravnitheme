@@ -25,7 +25,7 @@
                         
                         $categories = get_terms( $cat_args );
                         $final_answer = new K8FinalAnswer(new K8AnswerForm(get_category_link($categories[0]->term_id)));
-                    $final_answer->prepareAnswer($requests);
+                    $final_answer->prepareAnswer($requests, $cat_args);
                     wp_send_json($final_answer);
                 }
             }
@@ -167,52 +167,56 @@ class K8FinalAnswer {
         $services = $query->posts;
 
         if($services) {
-            $reviews_ids = [];
-            foreach($services as $service) {
-                $reviews_ids[] = get_field('review', $service->ID);
-            }
-
-            $reviews = $this->getReviews($reviews_ids);
-            
-            foreach($reviews as $review) {
-                $img = get_the_post_thumbnail_url($review->ID);
-                $this->result[] = new K8AnswerReview(get_field('k8_cmn_service_name', $review->ID), $img, $review->ID);
-            }
-            $this->a = 'Мы нашли следующие обзоры';
-            $this->modal = new K8AnswerModal();
+            $this->responseFound($services);
         } else {
-
-            $args =[
-                'post_type' => 'services',
-            ];
-            
-             $args['tax_query'][] = [
-                    'taxonomy' => 'k8tax_group',
-                    'field'    => 'term_id',
-                    'terms'    => $request->value,
-                ];
-
-            $query = new wp_query($args);
-            $services = $query->posts;
-            
-            $reviews_ids = [];
-            foreach($services as $service) {
-                $reviews_ids[] = get_field('review', $service->ID);
-            }
-            
-            $reviews = $this->getReviews($reviews_ids);
-            
-            foreach($reviews as $review) {
-                $img = get_the_post_thumbnail_url($review->ID);
-                $this->result[] = new K8AnswerReview(get_field('k8_cmn_service_name', $review->ID), $img, $review->ID);
-            }
-            
-            $this->a ='К сожалению, мы не нашли сервисы подходящие под ваши запросы. Возможно, вас устроит один из сервисов с немного отличными параметрами?';
-            $this->modal = new K8AnswerModal($this->a);
+            $this->responseNotFound($requests[0]);
         }
     }
 
-    function getReviews($reviews_ids) {
+    function responseFound($services) {
+
+        $reviews = $this->getReviewsByServices($services);
+        
+        foreach($reviews as $review) {
+            $img = get_the_post_thumbnail_url($review->ID);
+            $this->result[] = new K8AnswerReview(get_field('k8_cmn_service_name', $review->ID), $img, $review->ID);
+        }
+        $this->a = 'Мы нашли следующие обзоры';
+        $this->modal = new K8AnswerModal();
+
+    }
+
+    function responseNotFound($request) {
+         $args = [
+             'post_type' => 'services',
+             'tax_query' => [[
+                'taxonomy' => 'k8tax_group',
+                'field'    => 'term_id',
+                'terms'    => $request->value,
+                ]]
+            ];
+
+        $query = new wp_query($args);
+        $services = $query->posts;
+        
+        $reviews = $this->getReviewsByServices($services);
+        
+        foreach($reviews as $review) {
+            $img = get_the_post_thumbnail_url($review->ID);
+            $this->result[] = new K8AnswerReview(get_field('k8_cmn_service_name', $review->ID), $img, $review->ID);
+        }
+        
+        $this->a ='К сожалению, мы не нашли сервисы подходящие под ваши запросы. Возможно, вас устроит один из сервисов с немного отличными параметрами?';
+        $this->modal = new K8AnswerModal($this->a);
+    }
+
+    function getReviewsByServices($services) {
+
+        $reviews_ids = [];
+        foreach($services as $service) {
+            $reviews_ids[] = get_field('review', $service->ID);
+        }
+
         $reviews_args = [
             'post_type' => 'k8pt_review',
             'limit' => '-1',
@@ -238,7 +242,7 @@ class K8AnswerForm {
 
 class K8AnswerModal {
     public $title = 'Вам подходят следующие сервисы:';
-    public $caption = 'Для того чтобы сравнить, выберите одновременно до 5-ти сервисов';
+    public $caption = 'Для сравнения выберите одновременно до 5-ти сервисов';
     function __construct($title = null, $caption = null) {
         if($title) {
             $this->title = $title;
