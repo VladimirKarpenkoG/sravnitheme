@@ -116,7 +116,7 @@ class K8FinalAnswer {
 
             if($request->key == 'serv_filter_price' || $request->key == 'serv_filter_size_gb') {
 
-                if($request->value[0] && $request->value[1]) {
+                if(!empty($request->value[0]) && !empty($request->value[1])) {
                     $meta_query[] = [
                         [
                             'key' => $request->key,
@@ -124,6 +124,7 @@ class K8FinalAnswer {
                             'compare' => "BETWEEN"
                         ]
                 ];
+
                 }elseif(!$request->value[0] && $request->value[1] || $request->value[1] === 0) {
                     $meta_query[] = [
                             [
@@ -132,11 +133,12 @@ class K8FinalAnswer {
                                 'compare' => '<='
                             ]
                     ];
+
                 }elseif($request->value[0] && !$request->value[1]) {
                     $meta_query[] = [
                             [
                                 'key' => $request->key,
-                                'value' => $request->value[1],
+                                'value' => $request->value[0],
                                 'compare' => '=>'
                             ]
                     ];
