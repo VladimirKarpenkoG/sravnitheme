@@ -43,7 +43,7 @@ get_header();
             <time datetime="<?= get_the_modified_date() ?>"><?= get_the_modified_date() ?></time><br>
           </div>
           <hr class="article__author-hr">
-          <div class="article__author-name"><a href="<?=get_author_posts_url($post->post_author)?>">Автор: <?= get_the_author('',false )?></a></div>
+          <div class="article__author-name">Автор: <a href="<?=get_author_posts_url($post->post_author)?>"><?= get_the_author('',false )?></a></div>
         </div>
       </div>
       <?php endif;?>
