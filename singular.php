@@ -29,21 +29,24 @@ get_header();
             </div>
           <?php endif;?>
         </div>
-
+        <?php if(!is_page()):?>
         <div class="article__header-img">
         <img src="<?= get_field('k8_cmn_illustration') ? wp_get_attachment_image_url( get_field('k8_cmn_illustration'), 'large' ): the_post_thumbnail_url('large') ?>" alt='Иллюстрация статьи "<?= $post->post_title?>"'>
         </div>
+        <?php endif;?>
 
       </header>
+      <?php if(!is_page()):?>
       <div class="article__author <?php if(!$accordions) echo 'article__author--no-toc';?>"><img class="article__author-image" src="<?= get_avatar_url($post->post_author)?>" alt="Автор: <?= get_the_author('',false )?>">
         <div class="article__author-info">
           <div class="article__author-create">Обновлено: 
             <time datetime="<?= get_the_modified_date() ?>"><?= get_the_modified_date() ?></time><br>
           </div>
           <hr class="article__author-hr">
-          <div class="article__author-name">Автор: <?= get_the_author('',false )?></div>
+          <div class="article__author-name"><a href="<?=get_author_posts_url($post->post_author)?>">Автор: <?= get_the_author('',false )?></a></div>
         </div>
       </div>
+      <?php endif;?>
       <?php if($accordions): ?>
       <div class="dropdown dropdown--theme_contents article__contents">
         <button class="btn dropdown__btn btn--sm" id="content-btn"><span><i class="mr-3 fas fa-list"></i>Содержание</span><i class="btn__ico fas fa-angle-down"></i></button>

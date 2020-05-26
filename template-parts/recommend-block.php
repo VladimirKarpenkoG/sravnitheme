@@ -1,6 +1,6 @@
  <!-- recommend block -->
 <?php
-    
+    if(is_page()) return false;
     //Sort post in categories by default
     $categories = get_the_category($post->ID);
     $category_ids = array();
