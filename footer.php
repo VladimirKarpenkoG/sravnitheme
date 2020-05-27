@@ -7,17 +7,28 @@
               'theme_location' => 'footer',
               'walker'=> new SravniWalker()])?>
           </nav>
-          <div class="footer__info"><img class="footer__logo" src="/wp-content/themes/sravnitheme/img/footer-logo.svg"  alt='<?=__('Логотип сайта «Сравни»')?>'>
-            <address class="footer__address">
-            <a class="address__link address__link--phone" href="tel:+74996095132">
-              <span class="address__text">+7-499-609 41 32</span>
-              <div class="address__image"></div>
-            </a>
-            <a class="address__link address__link--mail" href="mailto:contact@geroy.ooo">
-              <span class="address__text">contact@geroy.ooo</span>
-              <div class="address__image"></div>
-            </a>
-            </address>
+          <div class="footer__info">
+            <img class="footer__logo" src="/wp-content/themes/sravnitheme/img/footer-logo.svg"  alt='<?=__('Логотип сайта «Сравни»')?>'>
+            <div class="footer__links">
+              <div class="footer__links-label">Контактная информация</div>
+              <a class="address__link address__link--btn" href="/author/">
+                  <span class="address__text">Авторы</span>
+              </a>
+              <address class="footer__address">
+                <a class="address__link address__link--phone" href="tel:+74996095132">
+                  <span class="address__text">+7-499-609 41 32</span>
+                  <div class="address__image"></div>
+                </a>
+                <a class="address__link address__link--mail" href="mailto:ak@geroy.ooo">
+                  <span class="address__text">ak@geroy.ooo</span>
+                  <div class="address__image"></div>
+                </a>
+                <a class="address__link address__link--mail" href="mailto:contact@geroy.ooo">
+                  <span class="address__text">contact@geroy.ooo</span>
+                  <div class="address__image"></div>
+                </a>
+              </address>
+            </div>
           </div>
           <p class="footer__copyright">
           Copyright © sravni.cc <?= date('Y')?> Все права защищены
