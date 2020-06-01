@@ -13,6 +13,10 @@
 	if($term->taxonomy == 'k8dl_group' ) {
 		$description_content = get_post_type_object( 'downloads' )->description;
 	} 
+
+	if(is_author()) {
+		$description_content = get_the_author_meta('description');
+	}
 		
 	if($description_content):?>  
 		<blockquote class="message message--quote message--description">
