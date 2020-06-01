@@ -164,6 +164,14 @@ function wpa_cpt_tags( $query ) {
 }
 add_action( 'pre_get_posts', 'wpa_cpt_tags' );
 
+
+function sravni_add_cpt_author( $query ) {
+    if ( !is_admin() && $query->is_author() && $query->is_main_query() ) {
+        $query->set( 'post_type', array('post', 'k8pt_review' ) );
+    }
+}
+add_action( 'pre_get_posts', 'sravni_add_cpt_author' );
+
 if ( ! function_exists( 'sravni_query_vars_filter' ) ) {
 	function sravni_query_vars_filter( $vars ) {
 	 $vars[] = 'sort';
